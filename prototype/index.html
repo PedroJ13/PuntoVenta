@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PuntoVenta - Prototipo POS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">PV</div>
+          <div>
+            <strong>PuntoVenta</strong>
+            <span>Cafeteria Central</span>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Principal">
+          <button class="nav-item active" data-view="sales">
+            <span class="nav-icon">+</span>
+            Ventas
+          </button>
+          <button class="nav-item" data-view="inventory">
+            <span class="nav-icon">#</span>
+            Materia prima
+          </button>
+          <button class="nav-item" data-view="items">
+            <span class="nav-icon">=</span>
+            Articulos
+          </button>
+          <button class="nav-item" data-view="recipes">
+            <span class="nav-icon">*</span>
+            Recetas
+          </button>
+        </nav>
+
+        <div class="shift-card">
+          <span>Turno abierto</span>
+          <strong>Caja 1</strong>
+          <small>Base: ₡25,000</small>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <section class="view active" id="sales-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Pantalla de ventas</p>
+              <h1>Caja rapida</h1>
+            </div>
+            <div class="header-actions">
+              <button class="icon-button" title="Reimprimir ultimo ticket">PR</button>
+              <button class="icon-button" title="Abrir gaveta">CG</button>
+              <button class="primary-button" id="new-account">Nueva cuenta</button>
+            </div>
+          </header>
+
+          <div class="sales-layout">
+            <section class="catalog-panel">
+              <div class="search-row">
+                <input id="product-search" type="search" placeholder="Buscar articulo o codigo" />
+                <button class="secondary-button" id="clear-search">Limpiar</button>
+              </div>
+
+              <div class="category-tabs" id="category-tabs"></div>
+              <div class="product-grid" id="product-grid"></div>
+            </section>
+
+            <aside class="ticket-panel">
+              <div class="account-tabs" id="account-tabs"></div>
+
+              <div class="ticket-heading">
+                <div>
+                  <span>Cuenta activa</span>
+                  <strong id="active-account-name">Mostrador 1</strong>
+                </div>
+                <button class="text-button" id="rename-account">Renombrar</button>
+              </div>
+
+              <div class="cart-lines" id="cart-lines"></div>
+
+              <div class="totals-box">
+                <div>
+                  <span>Subtotal</span>
+                  <strong id="subtotal">₡0</strong>
+                </div>
+                <div>
+                  <span>Impuesto estimado</span>
+                  <strong id="tax">₡0</strong>
+                </div>
+                <div class="total-row">
+                  <span>Total</span>
+                  <strong id="total">₡0</strong>
+                </div>
+              </div>
+
+              <div class="payment-row">
+                <button class="pay-option active" data-method="Efectivo">Efectivo</button>
+                <button class="pay-option" data-method="Tarjeta">Tarjeta</button>
+                <button class="pay-option" data-method="SINPE">SINPE</button>
+              </div>
+
+              <button class="checkout-button" id="checkout">Cobrar e imprimir ticket</button>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="inventory-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Control de insumos</p>
+              <h1>Materia prima</h1>
+            </div>
+            <button class="primary-button">Registrar compra</button>
+          </header>
+
+          <div class="data-layout">
+            <article class="summary-strip">
+              <div>
+                <span>Cafe disponible</span>
+                <strong>7.35 kg</strong>
+              </div>
+              <div>
+                <span>Leche disponible</span>
+                <strong>18.2 L</strong>
+              </div>
+              <div>
+                <span>Bajo minimo</span>
+                <strong>4 insumos</strong>
+              </div>
+            </article>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Insumo</th>
+                  <th>Unidad</th>
+                  <th>Stock</th>
+                  <th>Minimo</th>
+                  <th>Costo ref.</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody id="inventory-table"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="view" id="items-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Catalogo comercial</p>
+              <h1>Articulos de venta</h1>
+            </div>
+            <button class="primary-button">Nuevo articulo</button>
+          </header>
+
+          <div class="item-board" id="item-board"></div>
+        </section>
+
+        <section class="view" id="recipes-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Transformacion</p>
+              <h1>Recetas</h1>
+            </div>
+            <button class="primary-button">Nueva receta</button>
+          </header>
+
+          <div class="recipe-layout">
+            <section class="recipe-list" id="recipe-list"></section>
+            <aside class="recipe-detail">
+              <span class="panel-label">Ejemplo de regla</span>
+              <h2>1 kg de cafe no se convierte antes de vender</h2>
+              <p>
+                El inventario guarda cafe en gramos. Cada venta descuenta la receta
+                real: express, americano o capuchino. Asi el kilo puede terminar en
+                cualquier mezcla de bebidas segun lo que se venda.
+              </p>
+              <div class="formula-box">
+                <strong>Disponibilidad teorica</strong>
+                <span>7350 g cafe / 10 g por taza = hasta 735 bebidas base</span>
+                <small>La leche, vasos y otros insumos pueden limitar antes.</small>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="ticket-dialog">
+      <div class="receipt">
+        <div class="receipt-head">
+          <strong>Cafeteria Central</strong>
+          <span>Ticket de caja</span>
+          <small id="receipt-meta"></small>
+        </div>
+        <div id="receipt-lines"></div>
+        <div class="receipt-total">
+          <span>Total</span>
+          <strong id="receipt-total">₡0</strong>
+        </div>
+        <div class="receipt-actions">
+          <button class="secondary-button" id="close-receipt">Cerrar</button>
+          <button class="primary-button" onclick="window.print()">Imprimir</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>

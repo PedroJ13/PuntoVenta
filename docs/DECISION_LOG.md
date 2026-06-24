@@ -72,3 +72,57 @@ Riesgo aceptado:
 
 La merma real y diferencia contra consumo teorico requeriran ajustes o control avanzado en una fase posterior.
 
+## 2026-06-20 - Cierre de alcance MVP operativo
+
+Decision:
+
+El primer MVP queda enfocado en caja rapida, cuentas abiertas, ticket interno, caja/turno, catalogo, compras simples, inventario por materia prima/receta y reportes basicos. Quedan fuera del primer corte: facturacion electronica, multi-sucursal, modo offline, impresora termica real, contabilidad, programa de lealtad, depositos/envases retornables y codigo de barras obligatorio.
+
+Motivo:
+
+El prototipo aprobado ya valida la direccion funcional y el riesgo principal ahora es crecer el alcance antes de cerrar caja e inventario minimo.
+
+Impacto:
+
+Las tareas tecnicas deben priorizar modelo de datos, app base con datos falsos, checklist QA de caja y contratos API antes de integrar servicios reales.
+
+Riesgo aceptado:
+
+Algunas funciones utiles para operacion futura se documentan como P1/P2 o post-MVP y no bloquearan el primer piloto.
+
+## 2026-06-20 - Reglas MVP de caja, cuentas e inventario
+
+Decision:
+
+Las cuentas abiertas no descuentan inventario al agregar articulos; el descuento ocurre al cobrar. El cliente por defecto sera consumidor final. El MVP usara una sola caja/terminal inicial. Los articulos preparados descuentan insumos segun receta al vender, no mediante produccion previa por lote.
+
+Motivo:
+
+Estas reglas reducen complejidad operativa y mantienen el foco en una caja funcional para cafeteria/despacho.
+
+Impacto:
+
+El modelo de datos debe soportar cuentas abiertas como ventas en preparacion, ventas cobradas como evento que afecta inventario y caja, y recetas con consumo teorico por unidad vendida.
+
+Riesgo aceptado:
+
+No habra reserva de inventario para cuentas abiertas en el primer MVP; si una cuenta queda abierta mucho tiempo, el stock disponible puede requerir control operativo.
+
+## 2026-06-20 - Impuestos y reportes MVP
+
+Decision:
+
+Los impuestos se manejaran en MVP como configuracion simple por articulo o tasa aplicable, sin integracion fiscal. Los reportes indispensables del primer piloto son ventas por dia/rango, ventas por producto/categoria, ventas por metodo de pago, cierre de caja, productos mas vendidos, stock actual y productos bajo minimo.
+
+Motivo:
+
+El MVP necesita totales operativos claros sin convertir el sistema en facturacion electronica ni contabilidad completa.
+
+Impacto:
+
+Backend/API y modelo de datos deben dejar campos suficientes para subtotal, impuesto simple, total, metodo de pago, cierre de caja e inventario minimo.
+
+Riesgo aceptado:
+
+Calculos fiscales avanzados, reportes contables y utilidad detallada quedan para fases posteriores.
+

@@ -13,6 +13,7 @@ Validar el MVP de `PuntoVenta` sin aprobar tareas con P0/P1 abiertos.
 
 ## Checklist inicial
 
+- Flujo de caja: `docs/QA_CHECKLIST_FLUJO_CAJA.md`.
 - [ ] Abrir la app o flujo principal.
 - [ ] Validar happy path.
 - [ ] Validar campos requeridos.

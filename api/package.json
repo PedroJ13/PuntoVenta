@@ -1,0 +1,15 @@
+{
+  "name": "puntoventa-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local API scaffold for PuntoVenta MVP.",
+  "scripts": {
+    "start": "node src/server.js",
+    "smoke:sql-local": "node scripts/smoke-sql-local.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

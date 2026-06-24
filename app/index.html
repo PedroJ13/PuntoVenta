@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PuntoVenta - App POS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">PV</div>
+          <div>
+            <strong>PuntoVenta</strong>
+            <span>Cafeteria Central</span>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Principal">
+          <button class="nav-item active" data-view="sales">
+            <span class="nav-icon">+</span>
+            Ventas
+          </button>
+          <button class="nav-item" data-view="cash">
+            <span class="nav-icon">$</span>
+            Caja diaria
+          </button>
+          <button class="nav-item" data-view="inventory">
+            <span class="nav-icon">#</span>
+            Materia prima
+          </button>
+          <button class="nav-item" data-view="items">
+            <span class="nav-icon">=</span>
+            Articulos
+          </button>
+          <button class="nav-item" data-view="recipes">
+            <span class="nav-icon">*</span>
+            Recetas
+          </button>
+          <button class="nav-item" data-view="reports">
+            <span class="nav-icon">%</span>
+            Reportes
+          </button>
+        </nav>
+
+        <div class="shift-card">
+          <span>Turno abierto</span>
+          <strong>Caja 1</strong>
+          <small>Base: <span data-shift-base></span></small>
+          <small id="api-status" class="api-status">Modo local</small>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <section class="view active" id="sales-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Pantalla de ventas</p>
+              <h1>Caja rapida</h1>
+            </div>
+            <div class="header-actions">
+              <button class="icon-button" title="Reimprimir ultimo ticket">PR</button>
+              <button class="icon-button" title="Abrir gaveta">CG</button>
+              <button class="primary-button" id="new-account">Nueva cuenta</button>
+            </div>
+          </header>
+
+          <div class="sales-layout">
+            <section class="catalog-panel">
+              <div class="search-row">
+                <input id="product-search" type="search" placeholder="Buscar articulo o codigo" />
+                <button class="secondary-button" id="clear-search">Limpiar</button>
+              </div>
+
+              <div class="category-tabs" id="category-tabs"></div>
+              <div class="product-grid" id="product-grid"></div>
+            </section>
+
+            <aside class="ticket-panel">
+              <div class="account-tabs" id="account-tabs"></div>
+
+              <div class="ticket-heading">
+                <div>
+                  <span>Cuenta activa</span>
+                  <strong id="active-account-name"></strong>
+                </div>
+                <button class="text-button" id="rename-account">Renombrar</button>
+              </div>
+
+              <div class="cart-lines" id="cart-lines"></div>
+
+              <div class="totals-box">
+                <div>
+                  <span>Subtotal</span>
+                  <strong id="subtotal"></strong>
+                </div>
+                <div>
+                  <span>Impuesto estimado</span>
+                  <strong id="tax"></strong>
+                </div>
+                <div class="total-row">
+                  <span>Total</span>
+                  <strong id="total"></strong>
+                </div>
+              </div>
+
+              <div class="payment-row" id="payment-row"></div>
+              <div class="checkout-warning" id="checkout-warning"></div>
+              <button class="checkout-button" id="checkout">Cobrar e imprimir ticket</button>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="cash-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Operacion diaria</p>
+              <h1>Caja diaria</h1>
+            </div>
+            <div class="header-actions">
+              <span id="cash-status" class="inline-status">Modo local</span>
+              <button class="primary-button" id="refresh-cash">Actualizar</button>
+            </div>
+          </header>
+
+          <div class="cash-layout">
+            <article class="summary-strip cash-summary" id="cash-summary"></article>
+            <div class="cash-message" id="cash-message"></div>
+
+            <section class="cash-panel" id="cash-open-panel">
+              <header>
+                <div>
+                  <span class="panel-label">Apertura</span>
+                  <h2>Abrir caja</h2>
+                </div>
+              </header>
+              <form class="cash-form" id="cash-open-form">
+                <label>
+                  Monto inicial
+                  <input id="cash-open-amount" type="number" min="0" step="1" value="25000" />
+                </label>
+                <label>
+                  Nota de apertura
+                  <input id="cash-open-note" type="text" maxlength="160" placeholder="Opcional" />
+                </label>
+                <button class="primary-button" type="submit">Abrir caja</button>
+              </form>
+            </section>
+
+            <section class="cash-panel">
+              <header>
+                <div>
+                  <span class="panel-label">Movimientos</span>
+                  <h2>Entrada, salida o ajuste</h2>
+                </div>
+              </header>
+              <form class="cash-form cash-form-grid" id="cash-movement-form">
+                <label>
+                  Tipo
+                  <select id="cash-movement-type">
+                    <option value="cash_in">Ingreso</option>
+                    <option value="cash_out">Egreso</option>
+                    <option value="cash_adjustment">Ajuste</option>
+                  </select>
+                </label>
+                <label>
+                  Direccion ajuste
+                  <select id="cash-adjustment-direction">
+                    <option value="increase">Aumenta</option>
+                    <option value="decrease">Disminuye</option>
+                  </select>
+                </label>
+                <label>
+                  Monto
+                  <input id="cash-movement-amount" type="number" min="1" step="1" />
+                </label>
+                <label>
+                  Motivo
+                  <input id="cash-movement-reason" type="text" maxlength="160" placeholder="Compra menor, retiro parcial..." />
+                </label>
+                <label>
+                  Referencia
+                  <input id="cash-movement-reference" type="text" maxlength="80" placeholder="Opcional" />
+                </label>
+                <button class="primary-button" type="submit">Registrar movimiento</button>
+              </form>
+            </section>
+
+            <section class="cash-panel">
+              <header>
+                <div>
+                  <span class="panel-label">Cierre</span>
+                  <h2>Arqueo de caja</h2>
+                </div>
+              </header>
+              <form class="cash-form cash-form-grid" id="cash-close-form">
+                <label>
+                  Efectivo contado
+                  <input id="cash-counted-amount" type="number" min="0" step="1" />
+                </label>
+                <label>
+                  Nota de cierre
+                  <input id="cash-close-note" type="text" maxlength="240" placeholder="Requerida si hay diferencia" />
+                </label>
+                <button class="primary-button" type="submit">Cerrar caja</button>
+              </form>
+            </section>
+
+            <div class="cash-grid">
+              <section class="cash-panel">
+                <header>
+                  <div>
+                    <span class="panel-label">Metodos</span>
+                    <h2>Resumen de pagos</h2>
+                  </div>
+                </header>
+                <div class="metric-grid" id="cash-payments"></div>
+              </section>
+
+              <section class="cash-panel">
+                <header>
+                  <div>
+                    <span class="panel-label">Detalle</span>
+                    <h2>Movimientos manuales</h2>
+                  </div>
+                </header>
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Tipo</th>
+                      <th>Monto</th>
+                      <th>Motivo</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cash-movements"></tbody>
+                </table>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="inventory-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Control de insumos</p>
+              <h1>Materia prima</h1>
+            </div>
+            <button class="primary-button">Registrar compra</button>
+          </header>
+
+          <div class="data-layout">
+            <article class="summary-strip" id="inventory-summary"></article>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Insumo</th>
+                  <th>Unidad</th>
+                  <th>Stock</th>
+                  <th>Minimo</th>
+                  <th>Costo ref.</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody id="inventory-table"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="view" id="items-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Catalogo comercial</p>
+              <h1>Articulos de venta</h1>
+            </div>
+            <button class="primary-button">Nuevo articulo</button>
+          </header>
+
+          <div class="item-board" id="item-board"></div>
+        </section>
+
+        <section class="view" id="recipes-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Transformacion</p>
+              <h1>Recetas</h1>
+            </div>
+            <button class="primary-button">Nueva receta</button>
+          </header>
+
+          <div class="recipe-layout">
+            <section class="recipe-list" id="recipe-list"></section>
+            <aside class="recipe-detail" id="recipe-detail"></aside>
+          </div>
+        </section>
+
+        <section class="view" id="reports-view">
+          <header class="view-header">
+            <div>
+              <p class="eyebrow">Lectura operativa</p>
+              <h1>Reportes MVP</h1>
+            </div>
+            <div class="header-actions">
+              <span id="reports-status" class="inline-status">Modo local</span>
+              <button class="primary-button" id="refresh-reports">Actualizar</button>
+            </div>
+          </header>
+
+          <div class="reports-layout">
+            <article class="summary-strip report-summary" id="reports-summary"></article>
+
+            <section class="report-panel">
+              <header>
+                <div>
+                  <span class="panel-label">Ventas</span>
+                  <h2>Productos mas vendidos</h2>
+                </div>
+              </header>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Articulo</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="reports-top-items"></tbody>
+              </table>
+            </section>
+
+            <section class="report-panel">
+              <header>
+                <div>
+                  <span class="panel-label">Detalle</span>
+                  <h2>Ventas por producto</h2>
+                </div>
+              </header>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Articulo</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Impuesto</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="reports-sales-by-item"></tbody>
+              </table>
+            </section>
+
+            <div class="reports-grid">
+              <section class="report-panel">
+                <header>
+                  <div>
+                    <span class="panel-label">Caja</span>
+                    <h2>Resumen de caja</h2>
+                  </div>
+                </header>
+                <div class="metric-grid" id="reports-cash"></div>
+              </section>
+
+              <section class="report-panel">
+                <header>
+                  <div>
+                    <span class="panel-label">Inventario</span>
+                    <h2>Bajo minimo</h2>
+                  </div>
+                </header>
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Insumo</th>
+                      <th>Stock</th>
+                      <th>Minimo</th>
+                      <th>Faltante</th>
+                    </tr>
+                  </thead>
+                  <tbody id="reports-low-stock"></tbody>
+                </table>
+              </section>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="ticket-dialog">
+      <div class="receipt">
+        <div class="receipt-head">
+          <strong id="receipt-business">Cafeteria Central</strong>
+          <span>Ticket de caja</span>
+          <em id="receipt-status">PAGADO</em>
+          <small id="receipt-meta"></small>
+        </div>
+        <dl class="receipt-details">
+          <div>
+            <dt>No.</dt>
+            <dd id="receipt-number"></dd>
+          </div>
+          <div>
+            <dt>Fecha</dt>
+            <dd id="receipt-date"></dd>
+          </div>
+          <div>
+            <dt>Caja</dt>
+            <dd id="receipt-terminal"></dd>
+          </div>
+          <div>
+            <dt>Cajero</dt>
+            <dd id="receipt-cashier"></dd>
+          </div>
+        </dl>
+        <div id="receipt-lines"></div>
+        <div class="receipt-summary">
+          <div>
+            <span>Subtotal</span>
+            <strong id="receipt-subtotal"></strong>
+          </div>
+          <div>
+            <span>Descuento</span>
+            <strong id="receipt-discount"></strong>
+          </div>
+          <div>
+            <span>Impuesto</span>
+            <strong id="receipt-tax"></strong>
+          </div>
+        </div>
+        <div class="receipt-total">
+          <span>TOTAL</span>
+          <strong id="receipt-total"></strong>
+        </div>
+        <div class="receipt-payments" id="receipt-payments"></div>
+        <p class="receipt-note">Comprobante interno - no es factura electronica</p>
+        <p class="receipt-thanks">Gracias por su compra</p>
+        <div class="receipt-actions">
+          <button class="secondary-button" id="close-receipt">Cerrar</button>
+          <button class="primary-button" id="print-receipt">Imprimir</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

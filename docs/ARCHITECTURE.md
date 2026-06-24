@@ -2,11 +2,11 @@
 
 ## Arquitectura inicial
 
-- Frontend: Web app por definir; prototipo actual en HTML/CSS/JS estatico
-- Backend/API: Por definir
-- Base de datos: Azure SQL previsto para fase tecnica
-- Cloud/hosting: Azure previsto
-- Auth: pendiente de decision.
+- Frontend: Azure Static Web Apps previsto; app base estatica en `app/`.
+- Backend/API: Azure Functions HTTP previsto; carpeta futura `api/`.
+- Base de datos: Azure SQL Database previsto para piloto/MVP con costo controlado.
+- Cloud/hosting: Azure, segun `docs/AZURE_INFRA_PLAN.md`.
+- Auth: permisos MVP definidos en `docs/AUTH_PERMISSIONS.md`; proveedor de autenticacion pendiente de decision.
 
 ## Principios
 
@@ -19,13 +19,28 @@
 ## Ambientes
 
 - Local: desarrollo.
-- Staging: opcional.
-- Production: pendiente de decision.
+- Pilot: ambiente inicial recomendado para validacion controlada.
+- Staging: opcional, solo si QA publicado debe separarse de produccion.
+- Production: posterior al piloto.
+
+## Infraestructura Azure
+
+Plan inicial:
+
+- `docs/AZURE_INFRA_PLAN.md`
+
+Reglas:
+
+- No crear recursos Azure sin tarea explicita.
+- No guardar secretos en el repositorio.
+- No usar Azure SQL para tareas visuales, frontend, copy, responsive o QA repetitivo.
+- Azure SQL se usa solo para migraciones aprobadas, smoke final, bugs reales de Azure o verificacion puntual de Infra/secretos.
 
 ## Pendientes de arquitectura
 
-- Estrategia de secretos.
-- Estrategia de deploy.
-- Estrategia de datos.
-- Observabilidad/logs.
+- Decision de proveedor real de autenticacion.
+- Provisionamiento real de Azure.
+- Workflows reales de deploy.
+- Migracion Azure SQL aprobada.
+- Observabilidad/logs implementados.
 

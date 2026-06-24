@@ -1,0 +1,5 @@
+local.settings.json
+local-secrets/
+*.log
+coverage/
+node_modules/

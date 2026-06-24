@@ -4,6 +4,49 @@
 
 Proyecto coordina. Cada chat especializado trabaja tareas pequenas con un unico owner principal.
 
+## Estado vivo
+
+- Leer `docs/ESTADO_OPERATIVO.md` para entender el presente.
+- Leer `docs/CURRENT_BLOCKERS.md` si hay una tarea bloqueada o un reintento.
+- La historia larga vive en `docs/MVP_RELEASE_STATUS.md`, `docs/BACKLOG.md` y handoffs.
+- Proyecto mantiene estos documentos cuando procesa handoffs.
+
+## Limite de trabajo paralelo
+
+- Maximo 1 tarea tecnica activa.
+- Maximo 1 tarea QA activa.
+- Maximo 1 tarea de decision/coordinacion activa.
+- Si se entrega un lote secuencial al mismo equipo, las tareas deben quedar en orden y con handoff por tarea.
+
+## Definition of Ready
+
+Una tarea esta lista cuando incluye:
+
+- objetivo claro;
+- equipo/chat responsable;
+- modo de ejecucion si aplica;
+- prioridad;
+- dependencias;
+- documentos a leer;
+- alcance y fuera de alcance;
+- criterios de aceptacion;
+- uso permitido o prohibido de cloud, SQL y servicios externos;
+- handoff esperado.
+
+## Definition of Done
+
+Un handoff debe permitir cierre por Proyecto sin adivinar:
+
+- resultado: aprobado, completado, bloqueado, parcial, fallido o no aprobado;
+- archivos cambiados si aplica;
+- verificacion ejecutada;
+- evidencia resumida;
+- P0/P1 y P2/P3 si es QA;
+- uso de cloud/SQL declarado;
+- riesgos o pendientes;
+- siguiente recomendado;
+- movimiento de tablero sugerido.
+
 ## Flujo
 
 1. Crear tarea en `tasks/TASK-###.md` o `tasks/TASK-###-assignment.md`.
@@ -15,6 +58,7 @@ Proyecto coordina. Cada chat especializado trabaja tareas pequenas con un unico 
 7. El equipo crea `tasks/TASK-###-HANDOFF.md`.
 8. El equipo mueve la tarea a `Needs Review`, `QA` o `Blocked`, segun resultado.
 9. Proyecto procesa el handoff y actualiza release status, backlog, decision log y tablero.
+10. Proyecto actualiza `docs/ESTADO_OPERATIVO.md` y `docs/CURRENT_BLOCKERS.md` si el estado vivo cambio.
 
 ## Chats reales del proyecto
 

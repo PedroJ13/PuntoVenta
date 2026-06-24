@@ -73,6 +73,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-046` - Pulso post QA SQL local | Pulso | P1 pre-lanzamiento | Round 30 | `TASK-045` | `tasks/TASK-046-HANDOFF.md` |
 
 ## QA
 
@@ -88,6 +89,51 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-001` - Cerrar alcance MVP y decisiones pendientes | Proyecto | MVP bloqueante | Round 1 | - | `tasks/TASK-001-HANDOFF.md` |
+| `TASK-002` - Definir modelo de datos MVP | Ejecucion Tecnica / SQL DEV-Data | MVP bloqueante | Round 1 | - | `tasks/TASK-002-HANDOFF.md` |
+| `TASK-003` - Convertir prototipo POS en app base | Ejecucion Tecnica / Web Dev | MVP bloqueante | Round 1 | - | `tasks/TASK-003-HANDOFF.md` |
+| `TASK-004` - Definir contrato API MVP | Ejecucion Tecnica / Backend-API | MVP bloqueante | Round 2 | `TASK-001`, `TASK-002` | `tasks/TASK-004-HANDOFF.md` |
+| `TASK-005` - Crear checklist QA inicial del flujo de caja | QA | MVP bloqueante | Round 1 | - | `tasks/TASK-005-HANDOFF.md` |
+| `TASK-006` - Definir plan inicial de infraestructura Azure | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 1 | - | `tasks/TASK-006-HANDOFF.md` |
+| `TASK-007` - Scaffold API local con tests | Ejecucion Tecnica / Backend-API | MVP bloqueante | Round 3 | `TASK-004` | `tasks/TASK-007-HANDOFF.md` |
+| `TASK-008` - Ejecutar QA manual del flujo de caja | QA | MVP bloqueante | Round 3 | `TASK-003`, `TASK-005` | `tasks/TASK-008-HANDOFF.md` |
+| `TASK-009` - Definir autenticacion y permisos MVP | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 3 | `TASK-004` | `tasks/TASK-009-HANDOFF.md` |
+| `TASK-010` - Definir formato de ticket de caja MVP | Ejecucion Tecnica / Diseno-UX | P1 pre-lanzamiento | Round 3 | `TASK-003`, `TASK-004` | `tasks/TASK-010-HANDOFF.md` |
+| `TASK-011` - Implementar auth fake y endpoint me | Ejecucion Tecnica / Backend-API | MVP bloqueante | Round 4 | `TASK-007`, `TASK-009` | `tasks/TASK-011-HANDOFF.md` |
+| `TASK-012` - Actualizar dialog de ticket MVP | Ejecucion Tecnica / Web Dev | MVP bloqueante | Round 4 | `TASK-003`, `TASK-010` | `tasks/TASK-012-HANDOFF.md` |
+| `TASK-013` - Ajuste responsive mobile de app base | Ejecucion Tecnica / Web Dev | P1 pre-lanzamiento | Round 4 | `TASK-008` | `tasks/TASK-013-HANDOFF.md` |
+| `TASK-014` - PO Test de caja con datos falsos | PO Test | MVP bloqueante | Round 4 | `TASK-008` | `tasks/TASK-014-HANDOFF.md` |
+| `TASK-015` - Endpoints locales de cuentas abiertas | Ejecucion Tecnica / Backend-API | MVP bloqueante | Round 5 | `TASK-011` | `tasks/TASK-015-HANDOFF.md` |
+| `TASK-016` - Checkout local fake con pagos e inventario simulado | Ejecucion Tecnica / Backend-API | MVP bloqueante | Round 5 | `TASK-011` | `tasks/TASK-016-HANDOFF.md` |
+| `TASK-017` - Endpoint local fake de ticket de venta | Ejecucion Tecnica / Backend-API | MVP bloqueante | Round 5 | `TASK-010`, `TASK-011` | `tasks/TASK-017-HANDOFF.md` |
+| `TASK-018` - Conectar app base a API local fake | Ejecucion Tecnica / Web Dev | MVP bloqueante | Round 6 | `TASK-015`, `TASK-016`, `TASK-017` | `tasks/TASK-018-HANDOFF.md` |
+| `TASK-019` - QA integracion app y API local | QA | MVP bloqueante | Round 6 | `TASK-018` | `tasks/TASK-019-HANDOFF.md` |
+| `TASK-020` - Corregir montos CRC enteros en API fake | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 7 | `TASK-019` | `tasks/TASK-020-HANDOFF.md` |
+| `TASK-021` - QA revalidar montos CRC en app y API local | QA | P1 pre-lanzamiento | Round 8 | `TASK-020` | `tasks/TASK-021-HANDOFF.md` |
+| `TASK-022` - Definir reportes MVP API local | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 8 | `TASK-016`, `TASK-020` | `tasks/TASK-022-HANDOFF.md` |
+| `TASK-023` - QA validar reportes MVP API local | QA | P1 pre-lanzamiento | Round 9 | `TASK-022` | `tasks/TASK-023-HANDOFF.md` |
+| `TASK-024` - Crear vista Web de reportes MVP local | Ejecucion Tecnica / Web Dev | P1 pre-lanzamiento | Round 10 | `TASK-022`, `TASK-023` | `tasks/TASK-024-HANDOFF.md` |
+| `TASK-025` - QA validar vista Web de reportes MVP local | QA | P1 pre-lanzamiento | Round 11 | `TASK-024` | `tasks/TASK-025-HANDOFF.md` |
+| `TASK-026` - Definir flujo operativo de caja diaria | Ejecucion Tecnica / Diseno-UX | MVP bloqueante | Round 12 | - | `tasks/TASK-026-HANDOFF.md` |
+| `TASK-027` - Preparar base tecnica para SQL Server Express local | Ejecucion Tecnica / SQL DEV-Data | P1 pre-lanzamiento | Round 12 | - | `tasks/TASK-027-HANDOFF.md` |
+| `TASK-028` - Implementar API fake de caja diaria | Ejecucion Tecnica / Backend-API | MVP bloqueante | Round 13 | `TASK-026` | `tasks/TASK-028-HANDOFF.md` |
+| `TASK-029` - Preparar modelo SQL de caja diaria | Ejecucion Tecnica / SQL DEV-Data | P1 pre-lanzamiento | Round 13 | `TASK-026`, `TASK-027` | `tasks/TASK-029-HANDOFF.md` |
+| `TASK-030` - Crear UI local de caja diaria | Ejecucion Tecnica / Web Dev | MVP bloqueante | Round 14 | `TASK-028` | `tasks/TASK-030-HANDOFF.md` |
+| `TASK-031` - QA validar gestion operativa de caja diaria | QA | MVP bloqueante | Round 15 | `TASK-030` | `tasks/TASK-031-HANDOFF.md` |
+| `TASK-032` - PO Test de gestion operativa de caja diaria | PO Test | MVP bloqueante | Round 16 | `TASK-031` | `tasks/TASK-032-HANDOFF.md` |
+| `TASK-033` - Validar migraciones en SQL Server Express local | Ejecucion Tecnica / SQL DEV-Data | P1 pre-lanzamiento | Round 17 | `TASK-027`, `TASK-029` | `tasks/TASK-033-HANDOFF.md` |
+| `TASK-034` - Crear seeds locales ficticios para SQL Server Express | Ejecucion Tecnica / SQL DEV-Data | P1 pre-lanzamiento | Round 18 | `TASK-033` | `tasks/TASK-034-HANDOFF.md` |
+| `TASK-035` - Conectar API a SQL local para catalogo | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 19 | `TASK-033`, `TASK-034` | `tasks/TASK-035-HANDOFF.md` |
+| `TASK-036` - Conectar API a SQL local para cuentas abiertas | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 20 | `TASK-035` | `tasks/TASK-036-HANDOFF.md` |
+| `TASK-037` - Conectar API a SQL local para caja diaria | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 21 | `TASK-036` | `tasks/TASK-037-HANDOFF.md` |
+| `TASK-038` - Conectar API a SQL local para ventas y checkout | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 22 | `TASK-037` | `tasks/TASK-038-HANDOFF.md` |
+| `TASK-039` - Conectar reportes MVP API a SQL local | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 23 | `TASK-038` | `tasks/TASK-039-HANDOFF.md` |
+| `TASK-040` - Ajustar Web local para estados SQL del API | Ejecucion Tecnica / Web Dev | P1 pre-lanzamiento | Round 24 | `TASK-039` | `tasks/TASK-040-HANDOFF.md` |
+| `TASK-041` - Preparar smoke tecnico local app API SQL | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 25 | `TASK-040` | `tasks/TASK-041-HANDOFF.md` |
+| `TASK-042` - Preparar paquete tecnico para QA SQL local | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 26 | `TASK-041` | `tasks/TASK-042-HANDOFF.md` |
+| `TASK-044` - Diagnosticar timeout de smoke SQL local QA | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 28 | `TASK-043` bloqueada | `tasks/TASK-044-HANDOFF.md` |
+| `TASK-043` - QA validar integracion SQL local MVP | QA | P1 pre-lanzamiento | Round 27 | `TASK-042` | `tasks/TASK-043-HANDOFF.md` |
+| `TASK-045` - QA reintentar integracion SQL local MVP | QA | P1 pre-lanzamiento | Round 29 | `TASK-044` | `tasks/TASK-045-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

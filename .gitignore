@@ -1,0 +1,18 @@
+# Local runtime artifacts
+tmp/
+logs/
+*.log
+
+# Dependencies
+node_modules/
+
+# Local secrets/config
+.env
+.env.*
+local.settings.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -88,9 +88,29 @@ Estado esperado tras `TASK-063`:
 
 ## Azure SQL
 
-Azure SQL queda fuera:
+Azure SQL pilot fue provisionado por `TASK-074`, pero la API publicada sigue con repositorios fake/fallback hasta `TASK-075`.
 
-- No hay SQL Server Azure.
-- No hay SQL Database Azure.
-- No hay connection string cloud.
-- La API publicada debe iniciar con repositorios fake/fallback.
+Recursos:
+
+- SQL Server: `sqlserver-puntoventa-pilot-brazilsouth`
+- SQL Server FQDN: `sqlserver-puntoventa-pilot-brazilsouth.database.windows.net`
+- SQL Database: `sqldb-puntoventa-pilot`
+- Region SQL: `brazilsouth`
+
+Guardrails:
+
+- SKU/objetivo: `GP_S_Gen5_1`
+- Compute model: serverless
+- Min capacity: `0.5`
+- Auto-pause: `60` minutos
+- Backup redundancy: `Local`
+- Zone redundant: `false`
+
+App Settings:
+
+- `SQL_CONNECTION_STRING` configurado en Azure Functions sin exponer valor.
+- `PV_SQLSERVER_ENABLED=false` hasta que `TASK-075` conecte API, aplique migraciones/smoke y habilite persistencia real.
+
+Nota operativa:
+
+`eastus2` no acepto crear nuevos Azure SQL Database servers en esta suscripcion durante `TASK-074`; se uso `brazilsouth` por aprobacion explicita del usuario, alineado con la region usada por PuntoClub para SQL.

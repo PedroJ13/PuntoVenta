@@ -85,6 +85,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-071` aprobo como PO la pantalla de ventas publicada para demo/piloto funcional.
 - `TASK-072` definio decision/plan de persistencia real cloud: recomienda Azure SQL pilot con migraciones revisables, provisionamiento autorizado, conexion API, smoke tecnico y QA publicado en tareas separadas.
 - `TASK-073` preparo el paquete revisable de migraciones y seed ficticio para Azure SQL pilot sin ejecutar SQL real ni crear recursos cloud.
+- `TASK-074` provisiono Azure SQL pilot en `brazilsouth` con serverless bajo, usuario runtime minimo y `SQL_CONNECTION_STRING` en Function App; la API sigue con `PV_SQLSERVER_ENABLED=false`.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 - Repo local Git inicializado.
 - Flujo Codex de Proyecto / Pulso / QA / Ejecucion Tecnica incorporado al repo.
@@ -92,13 +93,13 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Procesar handoff de `TASK-073`.
-- Mantener Azure SQL fuera hasta autorizacion explicita posterior para `TASK-074` o tarea equivalente.
+- Procesar handoff de `TASK-074`.
+- Mantener migraciones/conexion API/smoke publicados para `TASK-075`.
 
 ### Bloqueado
 
-- Azure SQL pausado hasta tarea explicita futura.
-- Provisionamiento Azure SQL bloqueado hasta autorizacion explicita posterior.
+- Conexion API a Azure SQL pausada hasta `TASK-075`.
+- QA publicado con persistencia Azure SQL bloqueado hasta `TASK-075`.
 - Sin bloqueo activo de push de cierre pilot; remoto validado por `TASK-070`.
 
 ### Hecho
@@ -177,6 +178,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-071`: PO Test publicado de pantalla de ventas aprobado.
 - `TASK-072`: decision/plan de persistencia real cloud preparado.
 - `TASK-073`: migraciones Azure SQL revisables para pilot preparadas.
+- `TASK-074`: Azure SQL pilot provisionado y configurado sin activar runtime SQL en API.
 
 ## Riesgos principales
 
@@ -189,5 +191,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Procesar `TASK-073`; mantener `TASK-074` bloqueada hasta autorizacion explicita de Azure SQL, presupuesto/SKU, region y responsable.
+Procesar `TASK-074`; siguiente paso recomendado: `TASK-075` para aplicar migraciones aprobadas, conectar API pilot a Azure SQL y ejecutar smoke tecnico controlado.
 

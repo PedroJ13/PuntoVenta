@@ -63,6 +63,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Nota |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-058` - Ejecutar deploy pilot por GitHub Actions | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 42 | `TASK-057` | Ejecutar workflows y validar Web/API publicos |
 
 ## In Progress
 
@@ -73,7 +74,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-046` - Pulso post QA SQL local | Pulso | P1 pre-lanzamiento | Round 30 | `TASK-045` | `tasks/TASK-046-HANDOFF.md` |
+| `TASK-057` - Consolidar cambios locales para deploy pilot | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 41 | `TASK-056` | `tasks/TASK-057-HANDOFF.md` |
 
 ## QA
 
@@ -84,6 +85,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Motivo |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-054` - Ejecutar primer deploy pilot Web API sin Azure SQL | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 38 | `TASK-053` | Web deploy bloqueado por `StaticSitesClient.exe` de SWA CLI; HTTP checks publicos fallan TCP desde este entorno |
 
 ## Done
 
@@ -134,6 +136,16 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-044` - Diagnosticar timeout de smoke SQL local QA | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 28 | `TASK-043` bloqueada | `tasks/TASK-044-HANDOFF.md` |
 | `TASK-043` - QA validar integracion SQL local MVP | QA | P1 pre-lanzamiento | Round 27 | `TASK-042` | `tasks/TASK-043-HANDOFF.md` |
 | `TASK-045` - QA reintentar integracion SQL local MVP | QA | P1 pre-lanzamiento | Round 29 | `TASK-044` | `tasks/TASK-045-HANDOFF.md` |
+| `TASK-046` - Pulso post QA SQL local | Pulso | P1 pre-lanzamiento | Round 30 | `TASK-045` | `tasks/TASK-046-HANDOFF.md` |
+| `TASK-047` - PO Test MVP SQL local | PO Test | P1 pre-lanzamiento | Round 31 | `TASK-046` | `tasks/TASK-047-HANDOFF.md` |
+| `TASK-048` - Preparar tooling minimo local sin reformat masivo | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 32 | `TASK-047` | `tasks/TASK-048-HANDOFF.md` |
+| `TASK-049` - Preflight cloud deploy sin crear recursos | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 33 | `TASK-048` | `tasks/TASK-049-HANDOFF.md` |
+| `TASK-050` - Definir paquete de decision para primer deploy | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 34 | `TASK-049` | `tasks/TASK-050-HANDOFF.md` |
+| `TASK-051` - Adaptar API local a Azure Functions sin Azure SQL | Ejecucion Tecnica / Backend-API | P1 pre-lanzamiento | Round 35 | Decision A+B | `tasks/TASK-051-HANDOFF.md` |
+| `TASK-052` - Provisionar recursos pilot Web API sin Azure SQL | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 36 | `TASK-051` | `tasks/TASK-052-HANDOFF.md` |
+| `TASK-053` - Configurar deploy Web API sin secrets en repo | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 37 | `TASK-052` | `tasks/TASK-053-HANDOFF.md` |
+| `TASK-055` - Configurar Web pilot con API base URL publicada | Ejecucion Tecnica / Web Dev | P1 pre-lanzamiento | Round 39 | `TASK-053` | `tasks/TASK-055-HANDOFF.md` |
+| `TASK-056` - Desbloquear deploy Web pilot y validar endpoints publicos | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 40 | `TASK-055` | `tasks/TASK-056-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

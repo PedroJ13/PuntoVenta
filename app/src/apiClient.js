@@ -1,4 +1,7 @@
-const defaultApiBaseUrl = "http://127.0.0.1:7071";
+export const localApiBaseUrl = "http://127.0.0.1:7071";
+export const pilotApiBaseUrl = "https://func-puntoventa-pilot-eastus2.azurewebsites.net";
+
+const pilotWebHosts = new Set(["gray-beach-00a0f870f.7.azurestaticapps.net"]);
 const fakeUserHeader = "cashier";
 
 export class ApiUnavailableError extends Error {
@@ -8,8 +11,23 @@ export class ApiUnavailableError extends Error {
   }
 }
 
-export function createApiClient({ baseUrl = defaultApiBaseUrl } = {}) {
-  const apiBaseUrl = window.localStorage.getItem("pvApiBaseUrl") || baseUrl;
+export function resolveApiBaseUrl({
+  baseUrl = localApiBaseUrl,
+  config = globalThis.window?.PUNTO_VENTA_CONFIG,
+  location = globalThis.window?.location,
+  storage = globalThis.window?.localStorage
+} = {}) {
+  const overrideBaseUrl = storage?.getItem("pvApiBaseUrl");
+  if (overrideBaseUrl) return overrideBaseUrl;
+
+  if (config?.apiBaseUrl) return config.apiBaseUrl;
+  if (pilotWebHosts.has(location?.hostname)) return pilotApiBaseUrl;
+
+  return baseUrl;
+}
+
+export function createApiClient({ baseUrl = localApiBaseUrl } = {}) {
+  const apiBaseUrl = resolveApiBaseUrl({ baseUrl });
 
   async function request(path, { method = "GET", body, user = fakeUserHeader } = {}) {
     let response;

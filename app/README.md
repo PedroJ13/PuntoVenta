@@ -28,11 +28,39 @@ Por defecto la app consume:
 http://127.0.0.1:7071
 ```
 
+En el host pilot publicado:
+
+```text
+https://gray-beach-00a0f870f.7.azurestaticapps.net
+```
+
+la app usa por defecto:
+
+```text
+https://func-puntoventa-pilot-eastus2.azurewebsites.net
+```
+
 Para apuntar a otra API local:
 
 ```js
 localStorage.setItem("pvApiBaseUrl", "http://127.0.0.1:7071")
 ```
+
+Para validar la API base URL activa desde el navegador:
+
+```js
+localStorage.removeItem("pvApiBaseUrl")
+import("./src/apiClient.js").then(({ createApiClient }) => console.log(createApiClient().apiBaseUrl))
+```
+
+El orden de resolucion es:
+
+1. `localStorage.pvApiBaseUrl`.
+2. `window.PUNTO_VENTA_CONFIG.apiBaseUrl`.
+3. API pilot publicada si el host es `gray-beach-00a0f870f.7.azurestaticapps.net`.
+4. API local `http://127.0.0.1:7071`.
+
+No se usan secrets ni connection strings para esta configuracion.
 
 ## Estados de API y SQL local
 

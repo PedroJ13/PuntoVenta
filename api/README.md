@@ -36,6 +36,7 @@ Scaffold local de API para el MVP.
   - `GET /api/reports/cash-shift/{shiftId}`
 - Repositorios fake en memoria para no depender de Azure SQL.
 - Tests con `node:test`.
+- Estructura compatible con Azure Functions para exponer las mismas rutas bajo `/api` sin Azure SQL.
 
 ## Comandos
 
@@ -43,6 +44,10 @@ Desde `api/`:
 
 ```powershell
 npm test
+npm run lint
+npm run check
+npm run format:check
+npm run functions:start
 npm start
 ```
 
@@ -53,6 +58,11 @@ node --test
 node src/server.js
 ```
 
+`npm run check` ejecuta lint y tests locales sin tocar archivos. `npm run format:check`
+queda disponible para adopcion gradual de Prettier; al crear este tooling, el codigo
+existente reporta diferencias de formato y no se aplico `prettier --write` para evitar
+un reformat masivo.
+
 Servidor local:
 
 ```text
@@ -62,6 +72,27 @@ http://127.0.0.1:7071/api/open-accounts
 http://127.0.0.1:7071/api/cash-shifts/current?terminalId=1
 http://127.0.0.1:7071/api/reports/sales-summary
 ```
+
+## Azure Functions local
+
+La API mantiene `src/server.js` para desarrollo local con Node y tambien incluye una
+funcion catch-all para Azure Functions:
+
+```text
+host.json
+httpApi/function.json
+httpApi/index.cjs
+```
+
+Para probar con Azure Functions Core Tools desde `api/`:
+
+```powershell
+npm run functions:start
+```
+
+La Function usa `routePrefix: "api"` y enruta `GET`, `POST`, `PATCH`, `DELETE` y
+`OPTIONS` hacia el mismo `createApp()` usado por el servidor local. Por defecto usa
+repositorios fake/fallback y no requiere Azure SQL.
 
 ## Auth fake local
 

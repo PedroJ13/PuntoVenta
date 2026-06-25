@@ -1,15 +1,22 @@
 # Local runtime artifacts
 tmp/
 logs/
+outputs/
 *.log
 
 # Dependencies
 node_modules/
+api/node_modules/
+app/node_modules/
+coverage/
+dist/
+build/
 
 # Local secrets/config
 .env
 .env.*
 local.settings.json
+local-secrets/
 
 # OS/editor noise
 .DS_Store

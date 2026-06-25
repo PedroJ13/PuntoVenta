@@ -11,6 +11,9 @@
 - `DECISION_LOG.md`: decisiones durables.
 - `ARCHITECTURE.md`: arquitectura inicial.
 - `AZURE_INFRA_PLAN.md`: plan inicial Azure, nombres de recursos, deploy, secretos y guardrails de costo.
+- `CLOUD_DEPLOY_PREFLIGHT.md`: preflight cloud/deploy sin crear recursos ni ejecutar deploy.
+- `FIRST_DEPLOY_DECISION_PACKAGE.md`: paquete de decision para autorizar o rechazar primer deploy.
+- `PILOT_DEPLOY_CONFIG.md`: configuracion de workflows y App Settings pilot sin secretos en repo.
 - `DATA_MODEL.md`: modelo de datos.
 - `SQL_SERVER_EXPRESS_LOCAL.md`: convenciones para preparar SQL Server Express local sin secretos ni conexion real.
 - `SMOKE_LOCAL_APP_API_SQL.md`: smoke tecnico local app/API/SQL para validar el flujo principal con SQL Server Express local.

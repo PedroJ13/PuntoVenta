@@ -5,11 +5,19 @@
   "type": "module",
   "description": "Local API scaffold for PuntoVenta MVP.",
   "scripts": {
+    "check": "npm run lint && npm test",
+    "format:check": "prettier --check .",
+    "functions:start": "func start",
+    "lint": "eslint .",
     "start": "node src/server.js",
     "smoke:sql-local": "node scripts/smoke-sql-local.js",
     "test": "node --test"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "eslint": "^10.5.0",
+    "prettier": "^3.8.4"
   }
 }

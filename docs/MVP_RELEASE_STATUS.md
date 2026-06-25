@@ -81,6 +81,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - Intento de publicacion de commits de cierre pilot documentado por `TASK-067`; bloqueo externo persiste.
 - `TASK-068` reintento publicar desde canal disponible y confirmo que la politica del entorno sigue bloqueando el push externo.
 - `TASK-069` preparo paquete local de publicacion por patch/bundle para transporte desde canal permitido.
+- `TASK-070` valido publicacion remota del cierre pilot: `origin/main` coincide con `0c8d2deb2245552c67e61968849a6135066c3d4e`, GitHub Actions API por push quedo exitoso, Web/API responden `HTTP 200` y Azure SQL sigue fuera.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 - Repo local Git inicializado.
 - Flujo Codex de Proyecto / Pulso / QA / Ejecucion Tecnica incorporado al repo.
@@ -88,13 +89,13 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Ejecucion Tecnica / Infra debe publicar el paquete local desde un destino/canal permitido por politica.
+- Procesar handoff de `TASK-070`.
 - Mantener cierre pilot como baseline operativo Web/API sin Azure SQL.
 
 ### Bloqueado
 
 - Azure SQL pausado hasta tarea explicita futura.
-- Push remoto de commits de cierre pilot bloqueado por politica del entorno.
+- Sin bloqueo activo de push de cierre pilot; remoto validado por `TASK-070`.
 
 ### Hecho
 
@@ -168,6 +169,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-067`: intento de publicacion de commits de cierre pilot documentado; bloqueo externo persiste.
 - `TASK-068`: intento de `git push origin main` desde canal disponible rechazado por politica del entorno.
 - `TASK-069`: paquete local de publicacion por patch/bundle preparado.
+- `TASK-070`: publicacion remota de cierre pilot validada.
 
 ## Riesgos principales
 
@@ -180,5 +182,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Publicar el paquete local desde un destino/canal permitido por politica. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
+Procesar `TASK-070` y mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
 

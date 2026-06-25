@@ -6,18 +6,18 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-069` cerrada por Proyecto: patch y bundle locales quedaron preparados en `.handoff/`.
+- `TASK-070` validada: cierre pilot publicado en remoto y workflow API por push exitoso.
 - API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
 - Azure SQL sigue fuera del primer deploy.
 
 ## Siguiente
 
-- Publicar el paquete local desde un destino/canal permitido por politica.
+- Procesar handoff de `TASK-070`.
 - Mantener Azure SQL fuera hasta tarea explicita.
 
 ## Bloqueado
 
-- Push de commits de cierre pilot bloqueado por politica del entorno tambien en `TASK-068`; se preparo salida por paquete local en `TASK-069`. Ver `docs/CURRENT_BLOCKERS.md`.
+- No hay bloqueo activo de push de cierre pilot; publicacion remota validada por `TASK-070`.
 
 ## Hecho reciente
 
@@ -51,8 +51,9 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 - `TASK-067`: intento de push documentado; bloqueo persiste por politica del entorno.
 - `TASK-068`: intento directo de `git push origin main` desde canal disponible rechazado por politica del entorno.
 - `TASK-069`: paquete local de publicacion generado como patch y bundle en `.handoff/`.
+- `TASK-070`: publicacion remota validada; `origin/main` coincide con `0c8d2deb2245552c67e61968849a6135066c3d4e`; API workflow por push exitoso.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 
 ## Decision necesaria
 
-- Publicacion externa de commits de cierre pilot por Ejecucion Tecnica / Infra. Azure SQL queda fuera del primer deploy.
+- Azure SQL queda fuera del primer deploy y requiere tarea explicita futura.

@@ -7,12 +7,12 @@ Bloqueos activos del proyecto. Mantener corto: bloqueo, responsable, siguiente a
 | Bloqueo | Responsable | Siguiente accion | Evidencia |
 | --- | --- | --- | --- |
 | Azure SQL pausado | Proyecto/PO | Mantener fuera del primer deploy; requiere tarea explicita futura | `docs/FIRST_DEPLOY_DECISION_PACKAGE.md` |
-| Push cierre pilot pendiente | Ejecucion Tecnica / Infra | Publicar `.handoff/puntoventa-release.patch` o `.handoff/puntoventa-release.bundle` desde un canal permitido; `git push origin main` fue rechazado tambien en `TASK-068` | `tasks/TASK-069-HANDOFF.md` |
 
 ## Resueltos recientes
 
 | Bloqueo | Resolucion | Evidencia |
 | --- | --- | --- |
+| Push cierre pilot pendiente | `origin/main` validado en `0c8d2deb2245552c67e61968849a6135066c3d4e`; GitHub Actions API por push `28189699742` quedo `success` | `tasks/TASK-070-HANDOFF.md` |
 | Baseline local/Git sin consolidar | Commit `e22521f Add PuntoVenta MVP local baseline`; arbol limpio al revisar estado | `git status --short --branch` |
 | PO Test MVP SQL local pendiente | PO aprobo `TASK-047` en este hilo | `tasks/TASK-047-HANDOFF.md` |
 | Tooling minimo pendiente | `TASK-048` preparo ESLint/Prettier sin reformat masivo; `npm run check` pasa | `tasks/TASK-048-HANDOFF.md` |

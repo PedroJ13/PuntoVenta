@@ -75,7 +75,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-070` - Validar publicacion remota de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 54 | `TASK-069` | `tasks/TASK-070-HANDOFF.md` |
+| `TASK-072` - Definir decision y plan de persistencia real cloud | Ejecucion Tecnica / Infra | P1 nueva fase | Round 56 | `TASK-071` | `tasks/TASK-072-HANDOFF.md` |
 
 ## QA
 
@@ -86,6 +86,10 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Motivo |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-073` - Preparar migraciones Azure SQL revisables para pilot | Ejecucion Tecnica / SQL DEV-Data | P1 nueva fase | Round 57 | `TASK-072` | Espera decision/alcance de persistencia real |
+| `TASK-074` - Provisionar Azure SQL pilot y configurar acceso seguro | Ejecucion Tecnica / Infra | P1 nueva fase | Round 58 | `TASK-072`, `TASK-073` | Requiere autorizacion explicita para crear Azure SQL |
+| `TASK-075` - Conectar API pilot a Azure SQL con smoke controlado | Ejecucion Tecnica / Backend-API | P1 nueva fase | Round 59 | `TASK-074` | Espera Azure SQL/config disponible |
+| `TASK-076` - QA publicado Web API con persistencia Azure SQL | QA | P1 nueva fase | Round 60 | `TASK-075` | Espera API pilot conectada a Azure SQL |
 
 ## Done
 
@@ -159,6 +163,8 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-067` - Publicar commits locales de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 51 | `TASK-066` | `tasks/TASK-067-HANDOFF.md` |
 | `TASK-068` - Publicar cierre pilot desde canal permitido | Ejecucion Tecnica / Infra | P2 recomendable | Round 52 | `TASK-067` | `tasks/TASK-068-HANDOFF.md` |
 | `TASK-069` - Preparar paquete local de publicacion por patch o bundle | Ejecucion Tecnica / Infra | P2 recomendable | Round 53 | `TASK-068` | `tasks/TASK-069-HANDOFF.md` |
+| `TASK-070` - Validar publicacion remota de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 54 | `TASK-069` | `tasks/TASK-070-HANDOFF.md` |
+| `TASK-071` - PO Test publicado de pantalla de ventas | PO Test | P1 nueva fase | Round 55 | `TASK-070` | `tasks/TASK-071-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

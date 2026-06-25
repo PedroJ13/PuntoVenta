@@ -6,14 +6,14 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-070` validada: cierre pilot publicado en remoto y workflow API por push exitoso.
+- `TASK-072` entregada: decision/plan recomienda Azure SQL pilot con autorizacion explicita posterior.
 - API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
 - Azure SQL sigue fuera del primer deploy.
 
 ## Siguiente
 
-- Procesar handoff de `TASK-070`.
-- Mantener Azure SQL fuera hasta tarea explicita.
+- Procesar handoff de `TASK-072`.
+- Mantener Azure SQL fuera hasta autorizar `TASK-074` o tarea equivalente.
 
 ## Bloqueado
 
@@ -52,8 +52,9 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 - `TASK-068`: intento directo de `git push origin main` desde canal disponible rechazado por politica del entorno.
 - `TASK-069`: paquete local de publicacion generado como patch y bundle en `.handoff/`.
 - `TASK-070`: publicacion remota validada; `origin/main` coincide con `0c8d2deb2245552c67e61968849a6135066c3d4e`; API workflow por push exitoso.
+- `TASK-071`: PO aprueba pantalla de ventas publicada para demo/piloto funcional.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 
 ## Decision necesaria
 
-- Azure SQL queda fuera del primer deploy y requiere tarea explicita futura.
+- Autorizar o ajustar la ruta Azure SQL pilot propuesta por `TASK-072`; Azure SQL sigue sin crearse.

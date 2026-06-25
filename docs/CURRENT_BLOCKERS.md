@@ -6,7 +6,7 @@ Bloqueos activos del proyecto. Mantener corto: bloqueo, responsable, siguiente a
 
 | Bloqueo | Responsable | Siguiente accion | Evidencia |
 | --- | --- | --- | --- |
-| Azure SQL pausado | Proyecto/PO | Mantener fuera del primer deploy; requiere tarea explicita futura | `docs/FIRST_DEPLOY_DECISION_PACKAGE.md` |
+| Azure SQL pausado | Proyecto/PO | Procesar decision de `TASK-072`; provisionamiento requiere autorizacion explicita posterior para `TASK-074` o equivalente | `docs/CLOUD_PERSISTENCE_DECISION_PLAN.md`, `tasks/TASK-072-HANDOFF.md` |
 
 ## Resueltos recientes
 

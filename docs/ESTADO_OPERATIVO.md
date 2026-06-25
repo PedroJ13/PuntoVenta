@@ -6,18 +6,19 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-068` cerrada por Proyecto: publicacion sigue bloqueada por politica externa.
+- `TASK-069` en entrega: paquete local de publicacion por patch/bundle preparado para canal permitido.
 - API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
 - Azure SQL sigue fuera del primer deploy.
 
 ## Siguiente
 
-- Ejecucion Tecnica / Infra debe publicar los commits locales desde un destino/canal permitido por politica.
+- Procesar handoff de `TASK-069`.
+- Publicar el paquete local desde un destino/canal permitido por politica.
 - Mantener Azure SQL fuera hasta tarea explicita.
 
 ## Bloqueado
 
-- Push de commits de cierre pilot bloqueado por politica del entorno tambien en `TASK-068`. Ver `docs/CURRENT_BLOCKERS.md`.
+- Push de commits de cierre pilot bloqueado por politica del entorno tambien en `TASK-068`; se preparo salida por paquete local en `TASK-069`. Ver `docs/CURRENT_BLOCKERS.md`.
 
 ## Hecho reciente
 

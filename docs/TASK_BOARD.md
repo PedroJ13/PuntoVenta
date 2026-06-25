@@ -75,6 +75,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-069` - Preparar paquete local de publicacion por patch o bundle | Ejecucion Tecnica / Infra | P2 recomendable | Round 53 | `TASK-068` | `tasks/TASK-069-HANDOFF.md` |
 
 ## QA
 

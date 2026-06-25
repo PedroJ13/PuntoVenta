@@ -2,6 +2,7 @@
 tmp/
 logs/
 outputs/
+.handoff/
 *.log
 
 # Dependencies

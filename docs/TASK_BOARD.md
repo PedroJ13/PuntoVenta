@@ -75,7 +75,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-068` - Publicar cierre pilot desde canal permitido | Ejecucion Tecnica / Infra | P2 recomendable | Round 52 | `TASK-067` | `tasks/TASK-068-HANDOFF.md` |
 
 ## QA
 
@@ -157,6 +156,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-065` - Documentar baseline pilot reproducible Web API | Ejecucion Tecnica / Infra | P2 recomendable | Round 49 | `TASK-064` | `tasks/TASK-065-HANDOFF.md` |
 | `TASK-066` - Consolidar commit de cierre pilot Infra | Ejecucion Tecnica / Infra | P2 recomendable | Round 50 | `TASK-065` | `tasks/TASK-066-HANDOFF.md` |
 | `TASK-067` - Publicar commits locales de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 51 | `TASK-066` | `tasks/TASK-067-HANDOFF.md` |
+| `TASK-068` - Publicar cierre pilot desde canal permitido | Ejecucion Tecnica / Infra | P2 recomendable | Round 52 | `TASK-067` | `tasks/TASK-068-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

@@ -126,7 +126,7 @@ resultado: sin errores
 
 ## Siguiente accion recomendada
 
-Proyecto/Usuario debe publicar manualmente los commits locales fuera de este canal o habilitar un destino/canal permitido por politica para `origin/main`.
+Ejecucion Tecnica / Infra debe publicar los commits locales desde un destino/canal permitido por politica para `origin/main`.
 
 ## Movimiento de tablero
 

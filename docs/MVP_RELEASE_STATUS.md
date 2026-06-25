@@ -79,6 +79,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - Baseline pilot reproducible Web/API documentado por `TASK-065`.
 - Commits locales de cierre pilot consolidados por `TASK-066`; push bloqueado por politica del entorno.
 - Intento de publicacion de commits de cierre pilot documentado por `TASK-067`; bloqueo externo persiste.
+- `TASK-068` reintento publicar desde canal disponible y confirmo que la politica del entorno sigue bloqueando el push externo.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 - Repo local Git inicializado.
 - Flujo Codex de Proyecto / Pulso / QA / Ejecucion Tecnica incorporado al repo.
@@ -86,8 +87,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Procesar `TASK-068`: intento directo de publicacion rechazado por politica del entorno.
-- Publicar commits locales fuera de este canal o habilitar un destino/canal permitido por politica.
+- Ejecucion Tecnica / Infra debe publicar los commits locales desde un destino/canal permitido por politica.
 - Mantener cierre pilot como baseline operativo Web/API sin Azure SQL.
 
 ### Bloqueado
@@ -178,5 +178,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Publicar manualmente los commits locales de cierre pilot fuera de este entorno o habilitar un destino/canal permitido por politica. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
+Ejecucion Tecnica / Infra debe publicar los commits locales de cierre pilot desde un destino/canal permitido por politica. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
 

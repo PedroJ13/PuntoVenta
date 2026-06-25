@@ -2,7 +2,7 @@
 
 ## Estado
 
-Assigned
+Needs Review
 
 ## Equipo responsable
 
@@ -53,11 +53,11 @@ Publicar en `origin main` los commits locales de cierre pilot y dejar evidencia 
 
 ## Criterios de aceptacion
 
-- [ ] Commits locales de cierre pilot y marcas de cierre Proyecto quedan publicados en `origin main`, o bloqueo exacto documentado.
-- [ ] Estado git posterior queda documentado.
-- [ ] No se exponen secretos.
-- [ ] No se crea ni usa Azure SQL.
-- [ ] El handoff indica `Uso Azure SQL: No`.
+- [x] Commits locales de cierre pilot y marcas de cierre Proyecto quedan publicados en `origin main`, o bloqueo exacto documentado.
+- [x] Estado git posterior queda documentado.
+- [x] No se exponen secretos.
+- [x] No se crea ni usa Azure SQL.
+- [x] El handoff indica `Uso Azure SQL: No`.
 
 ## Verificacion esperada
 

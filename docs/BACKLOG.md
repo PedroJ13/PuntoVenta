@@ -8,7 +8,6 @@
 
 ## P2 recomendable
 
-- Publicar commits locales de cierre pilot. (`TASK-067`)
 - Exportaciones.
 - Mejoras UX no bloqueantes.
 - Codigo de barras.
@@ -88,4 +87,4 @@
 - TASK-064: Restringir CORS API pilot a Web publicada.
 - TASK-065: Documentar baseline pilot reproducible Web API.
 - TASK-066: Consolidar commit de cierre pilot Infra.
-
+- TASK-067: Publicar commits locales de cierre pilot.

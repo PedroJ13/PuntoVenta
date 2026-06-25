@@ -7,7 +7,7 @@ Bloqueos activos del proyecto. Mantener corto: bloqueo, responsable, siguiente a
 | Bloqueo | Responsable | Siguiente accion | Evidencia |
 | --- | --- | --- | --- |
 | Azure SQL pausado | Proyecto/PO | Mantener fuera del primer deploy; requiere tarea explicita futura | `docs/FIRST_DEPLOY_DECISION_PACKAGE.md` |
-| Push cierre pilot pendiente | Ejecucion Tecnica / Infra | Ejecutar `TASK-067` con aprobacion explicita para `git push origin main` | `tasks/TASK-066-HANDOFF.md` |
+| Push cierre pilot pendiente | Proyecto/Usuario | Publicar manualmente fuera de este canal o habilitar un canal permitido; `git push origin main` fue rechazado por politica del entorno | `tasks/TASK-067-HANDOFF.md` |
 
 ## Resueltos recientes
 

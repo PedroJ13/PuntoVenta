@@ -63,7 +63,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Nota |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-067` - Publicar commits locales de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 51 | `TASK-066` | Requiere aprobacion explicita para `git push origin main` |
 
 ## In Progress
 
@@ -74,6 +73,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-067` - Publicar commits locales de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 51 | `TASK-066` | `tasks/TASK-067-HANDOFF.md` |
 
 ## QA
 

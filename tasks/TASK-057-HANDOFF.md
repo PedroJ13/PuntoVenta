@@ -131,26 +131,31 @@ gitleaks no esta disponible en PATH de esta sesion.
 
 ## Commit y push
 
-El commit local se crea como parte del cierre de esta tarea con mensaje:
+Commit local creado:
 
 ```text
-Add PuntoVenta pilot deploy pipeline
+00c726c Add PuntoVenta pilot deploy pipeline
 ```
 
-Push esperado:
+Push ejecutado:
 
 ```text
 git push origin main
 ```
 
-Si falla, el bloqueo esperado es credencial/autenticacion GitHub, consistente con `TASK-056`.
+Resultado:
+
+```text
+To https://github.com/PedroJ13/PuntoVenta.git
+ * [new branch]      main -> main
+```
 
 ## Resultado por criterio
 
 | Criterio | Resultado | Evidencia |
 | --- | --- | --- |
-| Cambios necesarios para deploy pilot quedan commiteados localmente | Cumple | Commit local creado durante cierre de `TASK-057`. |
-| Push a GitHub queda realizado o bloqueo exacto documentado | Pendiente de resultado | Se intenta despues de crear el commit; si falla, ver salida de push en final/continuacion. |
+| Cambios necesarios para deploy pilot quedan commiteados localmente | Cumple | `00c726c Add PuntoVenta pilot deploy pipeline`. |
+| Push a GitHub queda realizado o bloqueo exacto documentado | Cumple | `git push origin main` publico `main` en `origin`. |
 | Checks relevantes quedan ejecutados o bloqueo documentado | Cumple | API 47/47, Web `node --check`, `git diff --check`. |
 | No quedan secrets en repo | Cumple | Busqueda textual sin valores reales; `.gitignore` cubre `.env` y secretos locales. |
 | No se crea ni usa Azure SQL | Cumple | No hubo cambios Azure/DB. |
@@ -160,17 +165,15 @@ Si falla, el bloqueo esperado es credencial/autenticacion GitHub, consistente co
 
 ### P0/P1
 
-- Ninguno antes del commit local.
+- Ninguno.
 
 ### P2/P3
 
 - P2: `gitleaks` no esta disponible en PATH, se uso escaneo textual acotado.
-- P2: Push puede fallar por credenciales GitHub locales invalidas, como ya registro `TASK-056`.
+- P3: `gh auth status` seguia invalido antes del push, pero `git push origin main` funciono con las credenciales Git disponibles.
 
 ## Pendientes o riesgos
 
-- Ejecutar push a GitHub.
-- Si push falla, reautenticar GitHub y repetir `git push origin main`.
 - `TASK-058` debe ejecutar o desbloquear workflows una vez el commit este en GitHub.
 
 ## Movimiento de tablero

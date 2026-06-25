@@ -57,19 +57,36 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - Paquete tecnico para QA SQL local preparado por `TASK-042`.
 - Timeout de smoke SQL local QA diagnosticado y smoke corregido por `TASK-044`.
 - QA aprobo integracion SQL local MVP por `TASK-045`.
+- Pulso post QA SQL local completado por `TASK-046`.
+- PO aprobo MVP SQL local por `TASK-047`.
+- Tooling minimo local preparado sin reformat masivo por `TASK-048`.
+- Preflight cloud/deploy sin recursos creado por `TASK-049`.
+- Paquete de decision para primer deploy creado por `TASK-050`.
+- API adaptada a Azure Functions sin Azure SQL por `TASK-051`.
+- Recursos Azure pilot Web/API creados sin Azure SQL por `TASK-052`.
+- Deploy Web/API configurado sin secrets en repo por `TASK-053`.
+- Primer deploy pilot quedo parcial/bloqueado por `TASK-054`: API registrada, Web deploy bloqueado y checks HTTP publicos no verificables desde este entorno.
+- Web pilot configurada con API base URL publicada por `TASK-055`.
+- Bloqueo de deploy Web/HTTP publico diagnosticado por `TASK-056`; ruta recomendada: GitHub Actions.
+- Cambios de deploy pilot commiteados y publicados en GitHub por `TASK-057`.
+- Workflows pilot confirmados en remoto por `TASK-058`; ejecucion bloqueada desde esta sesion por `gh` invalido/herramientas disponibles.
+- Workflows pilot ejecutados por `TASK-059`; ambos fallaron por secrets faltantes, pero Web/API publicos responden `HTTP 200` y Azure SQL no existe/no se usa.
+- Secrets GitHub pilot configurados por `TASK-060`; Web workflow quedo exitoso y API workflow falla por Kudu `401` con `basicPublishingCredentialsPolicies/scm allow:false`.
+- SCM basic publishing temporal habilitado por `TASK-061`; API workflow quedo exitoso, Web workflow sigue exitoso y Web/API publicos responden `HTTP 200`.
+- QA publicado Web/API pilot aprobado con observaciones por `TASK-062`; sin P0/P1 y sin Azure SQL.
+- Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 - Repo local Git inicializado.
 - Flujo Codex de Proyecto / Pulso / QA / Ejecucion Tecnica incorporado al repo.
 - Tareas iniciales `TASK-001` a `TASK-006` creadas y registradas en `docs/TASK_BOARD.md`.
 
 ### Siguiente
 
-- Ejecutar `TASK-046`: Pulso post QA SQL local.
-- Despues de QA local aprobada, validar baseline local y Git limpio antes de instalar tooling dentro del repo.
-- Crear tareas posteriores de provisionamiento Azure, migracion SQL o deploy solo cuando Proyecto las autorice.
+- Completar `TASK-066`: commit local de cierre Infra pilot y documentar resultado de push.
+- Despues del cierre Infra, decidir si basta cierre documental o si se requiere QA ligera de regresion publicada.
 
 ### Bloqueado
 
-- Tooling nuevo dentro del repo pausado hasta baseline local y Git limpio.
+- Azure SQL pausado hasta tarea explicita futura.
 
 ### Hecho
 
@@ -120,6 +137,25 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-042`: paquete tecnico para QA SQL local.
 - `TASK-044`: diagnostico de timeout de smoke SQL local QA.
 - `TASK-045`: QA integracion SQL local MVP aprobada.
+- `TASK-046`: Pulso post QA SQL local.
+- `TASK-047`: PO Test MVP SQL local aprobado.
+- `TASK-048`: tooling minimo local sin reformat masivo.
+- `TASK-049`: preflight cloud/deploy sin crear recursos.
+- `TASK-050`: paquete de decision para primer deploy.
+- `TASK-051`: API local adaptada a Azure Functions sin Azure SQL.
+- `TASK-052`: recursos pilot Web/API creados sin Azure SQL.
+- `TASK-053`: deploy Web/API configurado sin secrets en repo.
+- `TASK-055`: Web pilot configurada con API base URL publicada.
+- `TASK-056`: diagnostico de bloqueo deploy Web/HTTP publico.
+- `TASK-057`: cambios deploy pilot commiteados y publicados en GitHub.
+- `TASK-058`: workflows pilot confirmados en remoto con bloqueo de ejecucion desde esta sesion.
+- `TASK-059`: workflows pilot ejecutados con failure por secrets faltantes; Web/API publicos responden.
+- `TASK-060`: secrets configurados; Web workflow exitoso; API workflow bloqueado por SCM basic publishing deshabilitado.
+- `TASK-061`: SCM pilot temporal habilitado; API workflow exitoso; Web/API publicos `HTTP 200`.
+- `TASK-062`: QA publicado Web/API pilot aprobado con observaciones.
+- `TASK-063`: API deploy migrado a OIDC/RBAC; SCM y FTP basic publishing apagados.
+- `TASK-064`: CORS API pilot restringido al origen Web publicado.
+- `TASK-065`: baseline pilot reproducible Web/API documentado.
 
 ## Riesgos principales
 
@@ -132,5 +168,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Completar `TASK-046` antes de abrir cloud/deploy o tooling. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
+Procesar handoffs de cierre Infra pilot y decidir si se requiere QA ligera publicada. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
 

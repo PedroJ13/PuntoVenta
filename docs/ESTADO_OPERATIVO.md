@@ -6,17 +6,19 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-046`: Pulso post QA SQL local para recomendar el siguiente frente.
-- Integracion SQL local MVP aprobada por QA en `TASK-045`.
+- `TASK-066`: consolidar commit local de cierre Infra pilot y documentar resultado de push.
+- `TASK-064` y `TASK-065` entregadas a revision.
+- API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
 
 ## Siguiente
 
-- Procesar handoff de `TASK-046` y decidir si sigue baseline local/Git limpio, PO Test, tooling o cloud/deploy.
-- Antes de instalar tooling dentro del repo: validar baseline local y Git limpio segun `docs/PROYECTO_TOOLING_ADOPTION.md`.
+- Procesar handoffs `TASK-064` a `TASK-066`.
+- Si Proyecto quiere cierre formal de QA publicado, ejecutar QA ligera enfocada en Web/API health y CORS.
+- Mantener Azure SQL fuera hasta tarea explicita.
 
 ## Bloqueado
 
-- No hay bloqueo critico local activo. Ver `docs/CURRENT_BLOCKERS.md`.
+- No hay bloqueo critico activo fuera de Azure SQL pausado por decision. Ver `docs/CURRENT_BLOCKERS.md`.
 
 ## Hecho reciente
 
@@ -27,9 +29,27 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 - `TASK-042`: paquete tecnico para QA SQL local.
 - `TASK-044`: timeout de smoke SQL local diagnosticado y smoke corregido.
 - `TASK-045`: QA SQL local aprobada sin P0/P1 abiertos.
+- `TASK-046`: Pulso post QA SQL local recomienda PO Test antes de tooling/cloud.
+- `TASK-047`: PO aprueba MVP SQL local.
+- `TASK-048`: tooling minimo local preparado sin reformat masivo.
+- `TASK-049`: preflight cloud deploy sin crear recursos.
+- `TASK-050`: paquete de decision para primer deploy.
+- `TASK-051`: API adaptada a estructura compatible con Azure Functions sin Azure SQL.
+- `TASK-052`: recursos Azure pilot Web/API creados sin Azure SQL.
+- `TASK-053`: deploy Web/API configurado sin secrets en repo.
+- `TASK-055`: Web pilot configurada para resolver API base publicada sin secrets.
+- `TASK-056`: bloqueo de deploy Web/HTTP publico diagnosticado; ruta recomendada GitHub Actions.
+- `TASK-057`: cambios de deploy pilot commiteados y publicados en GitHub.
+- `TASK-058`: workflows existen en remoto; ejecucion queda bloqueada por `gh` invalido/herramientas disponibles.
+- `TASK-059`: workflows ejecutados y fallaron por secrets faltantes; Web/API publicos responden 200.
+- `TASK-060`: secrets configurados; Web workflow exitoso; API workflow bloqueado por SCM basic publishing deshabilitado.
+- `TASK-061`: SCM pilot temporal habilitado; API workflow exitoso; Web/API publicos responden 200.
+- `TASK-062`: QA publicado Web/API aprobado con observaciones, sin P0/P1.
+- `TASK-063`: API deploy migrado a OIDC/RBAC; SCM y FTP basic publishing apagados.
+- `TASK-064`: CORS efectiva de API pilot restringida al origen Web publicado.
+- `TASK-065`: baseline reproducible Web/API pilot documentado.
+- Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 
 ## Decision necesaria
 
-- Ninguna decision de producto inmediata.
-- Cloud/deploy queda pendiente hasta procesar Pulso y una tarea explicita.
-- Tooling nuevo dentro del repo queda pendiente hasta baseline local y Git limpio.
+- Ninguna decision inmediata. Azure SQL queda fuera del primer deploy.

@@ -73,8 +73,9 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-057` - Consolidar cambios locales para deploy pilot | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 41 | `TASK-056` | `tasks/TASK-057-HANDOFF.md` |
-| `TASK-058` - Ejecutar deploy pilot por GitHub Actions | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 42 | `TASK-057` | `tasks/TASK-058-HANDOFF.md` |
+| `TASK-064` - Restringir CORS API pilot a Web publicada | Ejecucion Tecnica / Infra | P2 recomendable | Round 48 | `TASK-063` | `tasks/TASK-064-HANDOFF.md` |
+| `TASK-065` - Documentar baseline pilot reproducible Web API | Ejecucion Tecnica / Infra | P2 recomendable | Round 49 | `TASK-064` | `tasks/TASK-065-HANDOFF.md` |
+| `TASK-066` - Consolidar commit de cierre pilot Infra | Ejecucion Tecnica / Infra | P2 recomendable | Round 50 | `TASK-065` | `tasks/TASK-066-HANDOFF.md` |
 
 ## QA
 
@@ -85,7 +86,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Motivo |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-054` - Ejecutar primer deploy pilot Web API sin Azure SQL | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 38 | `TASK-053` | Web deploy bloqueado por `StaticSitesClient.exe` de SWA CLI; HTTP checks publicos fallan TCP desde este entorno |
 
 ## Done
 
@@ -146,6 +146,13 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-053` - Configurar deploy Web API sin secrets en repo | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 37 | `TASK-052` | `tasks/TASK-053-HANDOFF.md` |
 | `TASK-055` - Configurar Web pilot con API base URL publicada | Ejecucion Tecnica / Web Dev | P1 pre-lanzamiento | Round 39 | `TASK-053` | `tasks/TASK-055-HANDOFF.md` |
 | `TASK-056` - Desbloquear deploy Web pilot y validar endpoints publicos | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 40 | `TASK-055` | `tasks/TASK-056-HANDOFF.md` |
+| `TASK-057` - Consolidar cambios locales para deploy pilot | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 41 | `TASK-056` | `tasks/TASK-057-HANDOFF.md` |
+| `TASK-058` - Ejecutar deploy pilot por GitHub Actions | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 42 | `TASK-057` | `tasks/TASK-058-HANDOFF.md` |
+| `TASK-059` - Ejecutar workflows pilot desde GitHub UI y validar URLs externas | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 43 | `TASK-058` | `tasks/TASK-059-HANDOFF.md` |
+| `TASK-060` - Configurar secrets GitHub pilot y re-ejecutar workflows | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 44 | `TASK-059` | `tasks/TASK-060-HANDOFF.md` |
+| `TASK-061` - Habilitar SCM pilot temporal y reintentar deploy API | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 45 | `TASK-060` | `tasks/TASK-061-HANDOFF.md` |
+| `TASK-062` - QA publicado Web API pilot sin Azure SQL | QA | P1 pre-lanzamiento | Round 46 | `TASK-061` | `tasks/TASK-062-HANDOFF.md` |
+| `TASK-063` - Migrar API deploy pilot a OIDC RBAC y apagar SCM | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 47 | `TASK-062` | `tasks/TASK-063-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

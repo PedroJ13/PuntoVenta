@@ -5,8 +5,6 @@
 
 ## P1 pre-lanzamiento
 
-- Pulso post QA SQL local. (`TASK-046`)
-- Validar baseline local y Git limpio antes de instalar tooling dentro del repo.
 
 ## P2 recomendable
 
@@ -69,4 +67,21 @@
 - TASK-042: Preparar paquete tecnico para QA SQL local.
 - TASK-044: Diagnosticar timeout de smoke SQL local QA.
 - TASK-045: QA reintentar integracion SQL local MVP.
+- TASK-046: Pulso post QA SQL local.
+- TASK-047: PO Test MVP SQL local.
+- TASK-048: Preparar tooling minimo local sin reformat masivo.
+- TASK-049: Preflight cloud deploy sin crear recursos.
+- TASK-050: Definir paquete de decision para primer deploy.
+- TASK-051: Adaptar API local a Azure Functions sin Azure SQL.
+- TASK-052: Provisionar recursos pilot Web API sin Azure SQL.
+- TASK-053: Configurar deploy Web API sin secrets en repo.
+- TASK-055: Configurar Web pilot con API base URL publicada.
+- TASK-056: Desbloquear deploy Web pilot y validar endpoints publicos.
+- TASK-057: Consolidar cambios locales para deploy pilot.
+- TASK-058: Ejecutar deploy pilot por GitHub Actions.
+- TASK-059: Ejecutar workflows pilot desde GitHub UI y validar URLs externas.
+- TASK-060: Configurar secrets GitHub pilot y re-ejecutar workflows.
+- TASK-061: Habilitar SCM pilot temporal y reintentar deploy API.
+- TASK-062: QA publicado Web API pilot sin Azure SQL.
+- TASK-063: Migrar API deploy pilot a OIDC RBAC y apagar SCM.
 

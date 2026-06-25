@@ -6,6 +6,8 @@ Configuracion de deploy pilot para PuntoVenta Web + API sin Azure SQL.
 
 Este documento no contiene valores secretos.
 
+Runbook operativo reproducible: `docs/PILOT_BASELINE_RUNBOOK.md`.
+
 ## Recursos destino
 
 - Static Web App: `swa-puntoventa-pilot-eastus2`
@@ -17,10 +19,10 @@ Este documento no contiene valores secretos.
 
 ## Workflows
 
-| Workflow  | Archivo                                      | Ruta publicada | Secret requerido                               |
+| Workflow  | Archivo                                      | Ruta publicada | Autenticacion                                  |
 | --------- | -------------------------------------------- | -------------- | ---------------------------------------------- |
 | Web pilot | `.github/workflows/puntoventa-web-pilot.yml` | `app/`         | `AZURE_STATIC_WEB_APPS_API_TOKEN_PUNTOVENTA`   |
-| API pilot | `.github/workflows/puntoventa-api-pilot.yml` | `api/`         | `AZURE_FUNCTIONAPP_PUBLISH_PROFILE_PUNTOVENTA` |
+| API pilot | `.github/workflows/puntoventa-api-pilot.yml` | `api/`         | GitHub OIDC + `azure/login` + RBAC minimo      |
 
 Ambos workflows se pueden ejecutar manualmente con `workflow_dispatch`.
 
@@ -36,24 +38,53 @@ No se configuro `SQL_CONNECTION_STRING` porque Azure SQL esta fuera del primer d
 
 ## CORS
 
-La Function App permite el origen:
+La Function App permite solo el origen Web pilot:
 
 ```text
 https://gray-beach-00a0f870f.7.azurestaticapps.net
 ```
 
-Nota: el adaptador local todavia agrega CORS amplio para mantener compatibilidad MVP.
-Antes de piloto real con usuarios externos, acotar CORS en codigo o configuracion
-efectiva.
+Configuracion esperada:
 
-## Secrets pendientes fuera del repo
+```text
+allowedOrigins:
+- https://gray-beach-00a0f870f.7.azurestaticapps.net
+supportCredentials: false
+```
 
-Crear en GitHub Secrets del ambiente/repositorio:
+Validacion no destructiva:
+
+```text
+curl.exe -i -H "Origin: https://gray-beach-00a0f870f.7.azurestaticapps.net" https://func-puntoventa-pilot-eastus2.azurewebsites.net/api/health
+```
+
+El origen permitido debe recibir `Access-Control-Allow-Origin` con la URL Web
+pilot exacta. Un origen externo no debe recibir ese header y el preflight externo
+debe ser rechazado por Azure.
+
+Excepcion local: el servidor local de desarrollo puede conservar CORS amplio para
+compatibilidad con pruebas MVP locales. La restriccion anterior aplica al pilot
+publicado.
+
+## GitHub secrets/config fuera del repo
+
+Crear o mantener en GitHub environment `pilot`:
 
 - `AZURE_STATIC_WEB_APPS_API_TOKEN_PUNTOVENTA`
-- `AZURE_FUNCTIONAPP_PUBLISH_PROFILE_PUNTOVENTA`
+- `AZURE_CLIENT_ID`
+- `AZURE_TENANT_ID`
+- `AZURE_SUBSCRIPTION_ID`
 
-No pegar estos valores en archivos, issues, handoffs ni logs.
+No pegar valores de tokens, publish profiles ni secretos en archivos, issues, handoffs ni logs.
+
+La API pilot ya no debe usar publish profile. El secret `AZURE_FUNCTIONAPP_PUBLISH_PROFILE_PUNTOVENTA` fue retirado del environment `pilot` tras migrar a OIDC/RBAC.
+
+## Azure Functions publishing policies
+
+Estado esperado tras `TASK-063`:
+
+- `basicPublishingCredentialsPolicies/scm`: `allow:false`
+- `basicPublishingCredentialsPolicies/ftp`: `allow:false`
 
 ## Azure SQL
 

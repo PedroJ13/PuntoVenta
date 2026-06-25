@@ -2,7 +2,7 @@
 
 ## Estado
 
-Assigned
+Hecha
 
 ## Equipo responsable
 

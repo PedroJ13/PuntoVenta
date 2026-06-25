@@ -63,7 +63,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Nota |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-058` - Ejecutar deploy pilot por GitHub Actions | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 42 | `TASK-057` | Ejecutar workflows y validar Web/API publicos |
 
 ## In Progress
 
@@ -75,6 +74,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
 | `TASK-057` - Consolidar cambios locales para deploy pilot | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 41 | `TASK-056` | `tasks/TASK-057-HANDOFF.md` |
+| `TASK-058` - Ejecutar deploy pilot por GitHub Actions | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 42 | `TASK-057` | `tasks/TASK-058-HANDOFF.md` |
 
 ## QA
 

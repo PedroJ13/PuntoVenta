@@ -2,7 +2,7 @@
 
 ## Estado
 
-Assigned
+Needs Review
 
 ## Equipo responsable
 
@@ -56,13 +56,13 @@ Ejecutar o desbloquear el deploy pilot Web/API por GitHub Actions y dejar eviden
 
 ## Criterios de aceptacion
 
-- [ ] Workflows pilot ejecutados correctamente o bloqueo exacto documentado.
-- [ ] Web publica responde o bloqueo exacto documentado.
-- [ ] API health publica responde o bloqueo exacto documentado.
-- [ ] No se crea ni usa Azure SQL.
-- [ ] No se exponen secretos.
-- [ ] Queda recomendacion clara: crear QA publicado o siguiente desbloqueo.
-- [ ] El handoff indica `Uso Azure SQL: No`.
+- [x] Workflows pilot ejecutados correctamente o bloqueo exacto documentado.
+- [x] Web publica responde o bloqueo exacto documentado.
+- [x] API health publica responde o bloqueo exacto documentado.
+- [x] No se crea ni usa Azure SQL.
+- [x] No se exponen secretos.
+- [x] Queda recomendacion clara: crear QA publicado o siguiente desbloqueo.
+- [x] El handoff indica `Uso Azure SQL: No`.
 
 ## Verificacion esperada
 

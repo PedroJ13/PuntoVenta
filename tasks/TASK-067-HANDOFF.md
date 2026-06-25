@@ -52,6 +52,13 @@ Uso Azure SQL: No.
 a6a8b17 Restrict pilot API CORS origin
 ```
 
+Nota: el commit local que versiona este handoff tambien queda pendiente de push.
+Para la lista final exacta, usar:
+
+```text
+git log --oneline origin/main..HEAD
+```
+
 ## Commit adicional creado en TASK-067
 
 ```text

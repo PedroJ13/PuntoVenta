@@ -1,7 +1,7 @@
-const corsHeaders = {
-  "access-control-allow-origin": "*",
+const baseCorsHeaders = {
   "access-control-allow-methods": "GET,POST,PATCH,DELETE,OPTIONS",
   "access-control-allow-headers": "content-type,x-pv-fake-user",
+  vary: "Origin",
 };
 
 export function toWebRequestFromAzureFunction(req) {
@@ -17,28 +17,56 @@ export function toWebRequestFromAzureFunction(req) {
   });
 }
 
-export async function toAzureFunctionResponse(response) {
+export async function toAzureFunctionResponse(response, requestOrigin = "") {
   const headers = Object.fromEntries(response.headers.entries());
 
   return {
     status: response.status,
     headers: {
       ...headers,
-      ...corsHeaders,
+      ...getCorsHeaders(requestOrigin),
     },
     body: await response.text(),
   };
 }
 
-export function corsPreflightAzureResponse() {
+export function corsPreflightAzureResponse(requestOrigin = "") {
   return {
     status: 204,
     headers: {
-      ...corsHeaders,
+      ...getCorsHeaders(requestOrigin),
       "access-control-max-age": "600",
     },
     body: "",
   };
+}
+
+function getCorsHeaders(requestOrigin) {
+  const allowedOrigin = getAllowedOrigin(requestOrigin);
+  const headers = { ...baseCorsHeaders };
+
+  if (allowedOrigin) {
+    headers["access-control-allow-origin"] = allowedOrigin;
+  }
+
+  return headers;
+}
+
+function getAllowedOrigin(requestOrigin) {
+  const configuredOrigins = (process.env.ALLOWED_ORIGINS || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
+  if (configuredOrigins.length === 0) {
+    return "*";
+  }
+
+  if (!requestOrigin) {
+    return configuredOrigins[0];
+  }
+
+  return configuredOrigins.includes(requestOrigin) ? requestOrigin : "";
 }
 
 function getAzureRequestBody(req, headers) {

@@ -9,6 +9,17 @@ import {
 import { createFakePuntoVentaRepositories } from "../src/repositories/fakePuntoVentaRepositories.js";
 import apiFunction from "../httpApi/index.cjs";
 
+const pilotWebOrigin = "https://gray-beach-00a0f870f.7.azurestaticapps.net";
+
+function restoreAllowedOrigins(previousAllowedOrigins) {
+  if (previousAllowedOrigins === undefined) {
+    delete process.env.ALLOWED_ORIGINS;
+    return;
+  }
+
+  process.env.ALLOWED_ORIGINS = previousAllowedOrigins;
+}
+
 test("Azure Functions adapter preserves API contract for GET /api/health", async () => {
   const app = createApp({
     repositories: createFakePuntoVentaRepositories(),
@@ -52,19 +63,45 @@ test("Azure Functions adapter serializes object bodies as JSON", async () => {
 });
 
 test("Azure Functions adapter returns CORS preflight response", () => {
-  const response = corsPreflightAzureResponse();
+  const previousAllowedOrigins = process.env.ALLOWED_ORIGINS;
+  process.env.ALLOWED_ORIGINS = pilotWebOrigin;
+
+  const response = corsPreflightAzureResponse(pilotWebOrigin);
 
   assert.equal(response.status, 204);
+  assert.equal(response.headers["access-control-allow-origin"], pilotWebOrigin);
   assert.equal(response.headers["access-control-allow-methods"], "GET,POST,PATCH,DELETE,OPTIONS");
+
+  restoreAllowedOrigins(previousAllowedOrigins);
+});
+
+test("Azure Functions adapter omits allowed origin header for unapproved origins", async () => {
+  const previousAllowedOrigins = process.env.ALLOWED_ORIGINS;
+  process.env.ALLOWED_ORIGINS = pilotWebOrigin;
+
+  const app = createApp({
+    repositories: createFakePuntoVentaRepositories(),
+    clock: () => new Date("2026-06-24T12:00:00Z"),
+  });
+  const response = await app.handle(new Request("https://func-puntoventa-pilot.example/api/health"));
+  const azureResponse = await toAzureFunctionResponse(response, "https://example.invalid");
+
+  assert.equal(azureResponse.status, 200);
+  assert.equal(azureResponse.headers["access-control-allow-origin"], undefined);
+
+  restoreAllowedOrigins(previousAllowedOrigins);
 });
 
 test("Azure Functions handler exposes current app routes", async () => {
+  const previousAllowedOrigins = process.env.ALLOWED_ORIGINS;
+  process.env.ALLOWED_ORIGINS = pilotWebOrigin;
   const context = {};
 
   await apiFunction(context, {
     method: "GET",
     url: "https://func-puntoventa-pilot.example/api/me",
     headers: {
+      origin: pilotWebOrigin,
       "x-pv-fake-user": "admin",
     },
   });
@@ -74,5 +111,7 @@ test("Azure Functions handler exposes current app routes", async () => {
   assert.equal(context.res.status, 200);
   assert.equal(body.data.userId, 1);
   assert.equal(body.data.displayName, "Admin Demo");
-  assert.equal(context.res.headers["access-control-allow-origin"], "*");
+  assert.equal(context.res.headers["access-control-allow-origin"], pilotWebOrigin);
+
+  restoreAllowedOrigins(previousAllowedOrigins);
 });

@@ -34,7 +34,7 @@ Ambos workflows se pueden ejecutar manualmente con `workflow_dispatch`.
 | `PV_SQLSERVER_ENABLED` | `false`                                              |
 | `ALLOWED_ORIGINS`      | `https://gray-beach-00a0f870f.7.azurestaticapps.net` |
 
-No se configuro `SQL_CONNECTION_STRING` porque Azure SQL esta fuera del primer deploy.
+`SQL_CONNECTION_STRING` esta configurado en Azure Functions como secreto runtime, sin valor en repo. La API sigue con `PV_SQLSERVER_ENABLED=false` hasta `TASK-075`.
 
 ## CORS
 
@@ -102,9 +102,16 @@ Guardrails:
 - SKU/objetivo: `GP_S_Gen5_1`
 - Compute model: serverless
 - Min capacity: `0.5`
-- Auto-pause: `60` minutos
+- Auto-pause: `15` minutos
 - Backup redundancy: `Local`
 - Zone redundant: `false`
+- TLS minimo: `1.2`
+- PITR / short-term retention: `7` dias
+- Differential backup interval: `12` horas
+- Public network access: `Enabled`, restringido por reglas firewall a IPs outbound actuales de la Function App
+- Locks `CanNotDelete`:
+  - `lock-puntoventa-sqlserver-pilot-cannotdelete`
+  - `lock-puntoventa-sqldb-pilot-cannotdelete`
 
 App Settings:
 

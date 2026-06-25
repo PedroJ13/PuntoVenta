@@ -76,6 +76,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
 | `TASK-074` - Provisionar Azure SQL pilot y configurar acceso seguro | Ejecucion Tecnica / Infra | P1 nueva fase | Round 58 | `TASK-072`, `TASK-073` | `tasks/TASK-074-HANDOFF.md` |
+| `TASK-077` - TASK-074.5 Ajustar guardrails Azure SQL pilot costo minimo | Ejecucion Tecnica / Infra | P1 nueva fase | Round 58.5 | `TASK-074` | `tasks/TASK-077-HANDOFF.md` |
 
 ## QA
 
@@ -86,7 +87,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Motivo |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-075` - Conectar API pilot a Azure SQL con smoke controlado | Ejecucion Tecnica / Backend-API | P1 nueva fase | Round 59 | `TASK-074` | Espera Azure SQL/config disponible |
+| `TASK-075` - Conectar API pilot a Azure SQL con smoke controlado | Ejecucion Tecnica / Backend-API | P1 nueva fase | Round 59 | `TASK-077` | Espera guardrails Azure SQL costo minimo cerrados |
 | `TASK-076` - QA publicado Web API con persistencia Azure SQL | QA | P1 nueva fase | Round 60 | `TASK-075` | Espera API pilot conectada a Azure SQL |
 
 ## Done

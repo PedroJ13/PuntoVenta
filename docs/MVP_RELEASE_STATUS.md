@@ -93,12 +93,12 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Procesar handoff de `TASK-074`.
-- Mantener migraciones/conexion API/smoke publicados para `TASK-075`.
+- Procesar handoff de `TASK-077`.
+- Mantener migraciones/conexion API/smoke publicados para `TASK-075` tras aceptar guardrails.
 
 ### Bloqueado
 
-- Conexion API a Azure SQL pausada hasta `TASK-075`.
+- Conexion API a Azure SQL pausada hasta liberar `TASK-075`.
 - QA publicado con persistencia Azure SQL bloqueado hasta `TASK-075`.
 - Sin bloqueo activo de push de cierre pilot; remoto validado por `TASK-070`.
 
@@ -179,6 +179,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-072`: decision/plan de persistencia real cloud preparado.
 - `TASK-073`: migraciones Azure SQL revisables para pilot preparadas.
 - `TASK-074`: Azure SQL pilot provisionado y configurado sin activar runtime SQL en API.
+- `TASK-077`: guardrails Azure SQL pilot costo minimo ajustados.
 
 ## Riesgos principales
 
@@ -191,5 +192,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Procesar `TASK-074`; siguiente paso recomendado: `TASK-075` para aplicar migraciones aprobadas, conectar API pilot a Azure SQL y ejecutar smoke tecnico controlado.
+Procesar `TASK-077`; si se acepta, liberar `TASK-075` para conectar API pilot a Azure SQL y ejecutar smoke tecnico controlado.
 

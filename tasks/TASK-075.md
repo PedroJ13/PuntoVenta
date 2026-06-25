@@ -70,4 +70,4 @@ Conectar la API pilot publicada a Azure SQL usando la configuracion segura provi
 
 ## Dependencia
 
-Bloqueada hasta que `TASK-074` deje Azure SQL/config disponible.
+Bloqueada hasta que `TASK-077` cierre los guardrails de Azure SQL pilot costo minimo y confirme que la API puede pasar a conexion/smoke.

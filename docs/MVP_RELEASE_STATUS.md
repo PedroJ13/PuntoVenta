@@ -81,8 +81,8 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Completar `TASK-066`: commit local de cierre Infra pilot y documentar resultado de push.
-- Despues del cierre Infra, decidir si basta cierre documental o si se requiere QA ligera de regresion publicada.
+- Completar `TASK-067`: publicar commits locales de cierre pilot.
+- Despues del push, decidir si basta cierre documental o si se requiere QA ligera de regresion publicada.
 
 ### Bloqueado
 

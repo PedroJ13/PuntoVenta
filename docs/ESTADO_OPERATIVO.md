@@ -6,19 +6,19 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-066`: consolidar commit local de cierre Infra pilot y documentar resultado de push.
-- `TASK-064` y `TASK-065` entregadas a revision.
+- `TASK-067`: publicar commits locales de cierre pilot.
+- `TASK-064` a `TASK-066` cerradas por Proyecto.
 - API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
 
 ## Siguiente
 
-- Procesar handoffs `TASK-064` a `TASK-066`.
-- Si Proyecto quiere cierre formal de QA publicado, ejecutar QA ligera enfocada en Web/API health y CORS.
+- Procesar handoff `TASK-067`.
+- Si el push queda publicado, decidir si basta cierre documental o QA ligera enfocada en Web/API health y CORS.
 - Mantener Azure SQL fuera hasta tarea explicita.
 
 ## Bloqueado
 
-- No hay bloqueo critico activo fuera de Azure SQL pausado por decision. Ver `docs/CURRENT_BLOCKERS.md`.
+- Push de commits de cierre pilot pendiente de aprobacion explicita. Ver `docs/CURRENT_BLOCKERS.md`.
 
 ## Hecho reciente
 
@@ -48,6 +48,7 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 - `TASK-063`: API deploy migrado a OIDC/RBAC; SCM y FTP basic publishing apagados.
 - `TASK-064`: CORS efectiva de API pilot restringida al origen Web publicado.
 - `TASK-065`: baseline reproducible Web/API pilot documentado.
+- `TASK-066`: commits locales de cierre pilot creados; push bloqueado por aprobacion explicita.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 
 ## Decision necesaria

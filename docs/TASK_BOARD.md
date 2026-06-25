@@ -63,6 +63,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Nota |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-067` - Publicar commits locales de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 51 | `TASK-066` | Requiere aprobacion explicita para `git push origin main` |
 
 ## In Progress
 
@@ -73,9 +74,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-064` - Restringir CORS API pilot a Web publicada | Ejecucion Tecnica / Infra | P2 recomendable | Round 48 | `TASK-063` | `tasks/TASK-064-HANDOFF.md` |
-| `TASK-065` - Documentar baseline pilot reproducible Web API | Ejecucion Tecnica / Infra | P2 recomendable | Round 49 | `TASK-064` | `tasks/TASK-065-HANDOFF.md` |
-| `TASK-066` - Consolidar commit de cierre pilot Infra | Ejecucion Tecnica / Infra | P2 recomendable | Round 50 | `TASK-065` | `tasks/TASK-066-HANDOFF.md` |
 
 ## QA
 
@@ -153,6 +151,9 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-061` - Habilitar SCM pilot temporal y reintentar deploy API | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 45 | `TASK-060` | `tasks/TASK-061-HANDOFF.md` |
 | `TASK-062` - QA publicado Web API pilot sin Azure SQL | QA | P1 pre-lanzamiento | Round 46 | `TASK-061` | `tasks/TASK-062-HANDOFF.md` |
 | `TASK-063` - Migrar API deploy pilot a OIDC RBAC y apagar SCM | Ejecucion Tecnica / Infra | P1 pre-lanzamiento | Round 47 | `TASK-062` | `tasks/TASK-063-HANDOFF.md` |
+| `TASK-064` - Restringir CORS API pilot a Web publicada | Ejecucion Tecnica / Infra | P2 recomendable | Round 48 | `TASK-063` | `tasks/TASK-064-HANDOFF.md` |
+| `TASK-065` - Documentar baseline pilot reproducible Web API | Ejecucion Tecnica / Infra | P2 recomendable | Round 49 | `TASK-064` | `tasks/TASK-065-HANDOFF.md` |
+| `TASK-066` - Consolidar commit de cierre pilot Infra | Ejecucion Tecnica / Infra | P2 recomendable | Round 50 | `TASK-065` | `tasks/TASK-066-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

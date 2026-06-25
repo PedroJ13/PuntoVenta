@@ -2,7 +2,7 @@
 
 ## Estado
 
-Needs Review
+Hecha
 
 ## Equipo responsable
 

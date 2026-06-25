@@ -8,6 +8,7 @@
 
 ## P2 recomendable
 
+- Publicar commits locales de cierre pilot. (`TASK-067`)
 - Exportaciones.
 - Mejoras UX no bloqueantes.
 - Codigo de barras.
@@ -84,4 +85,7 @@
 - TASK-061: Habilitar SCM pilot temporal y reintentar deploy API.
 - TASK-062: QA publicado Web API pilot sin Azure SQL.
 - TASK-063: Migrar API deploy pilot a OIDC RBAC y apagar SCM.
+- TASK-064: Restringir CORS API pilot a Web publicada.
+- TASK-065: Documentar baseline pilot reproducible Web API.
+- TASK-066: Consolidar commit de cierre pilot Infra.
 

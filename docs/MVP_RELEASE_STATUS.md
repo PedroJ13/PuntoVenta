@@ -88,7 +88,6 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Procesar handoff de `TASK-069`.
 - Ejecucion Tecnica / Infra debe publicar el paquete local desde un destino/canal permitido por politica.
 - Mantener cierre pilot como baseline operativo Web/API sin Azure SQL.
 
@@ -181,5 +180,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Procesar `TASK-069` y publicar el paquete local desde un destino/canal permitido por politica. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
+Publicar el paquete local desde un destino/canal permitido por politica. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
 

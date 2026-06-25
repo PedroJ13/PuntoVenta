@@ -6,13 +6,12 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-069` en entrega: paquete local de publicacion por patch/bundle preparado para canal permitido.
+- `TASK-069` cerrada por Proyecto: patch y bundle locales quedaron preparados en `.handoff/`.
 - API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
 - Azure SQL sigue fuera del primer deploy.
 
 ## Siguiente
 
-- Procesar handoff de `TASK-069`.
 - Publicar el paquete local desde un destino/canal permitido por politica.
 - Mantener Azure SQL fuera hasta tarea explicita.
 
@@ -51,6 +50,7 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 - `TASK-066`: commits locales de cierre pilot creados; push bloqueado por aprobacion explicita.
 - `TASK-067`: intento de push documentado; bloqueo persiste por politica del entorno.
 - `TASK-068`: intento directo de `git push origin main` desde canal disponible rechazado por politica del entorno.
+- `TASK-069`: paquete local de publicacion generado como patch y bundle en `.handoff/`.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 
 ## Decision necesaria

@@ -2,7 +2,7 @@
 
 ## Estado
 
-Needs Review
+Done
 
 ## Nombre del Equipo
 
@@ -68,12 +68,12 @@ Preparar un paquete local de publicacion con los commits pendientes de `origin/m
 
 ## Criterios de aceptacion
 
-- [ ] Estado Git y commits pendientes quedan documentados.
-- [ ] Patch o bundle queda generado en `.handoff/`, o bloqueo exacto documentado.
-- [ ] El handoff indica base, commits incluidos y ruta del paquete generado.
-- [ ] No se exponen secretos.
-- [ ] No se crea ni usa Azure SQL.
-- [ ] El handoff indica `Uso Azure SQL: No`.
+- [x] Estado Git y commits pendientes quedan documentados.
+- [x] Patch o bundle queda generado en `.handoff/`, o bloqueo exacto documentado.
+- [x] El handoff indica base, commits incluidos y ruta del paquete generado.
+- [x] No se exponen secretos.
+- [x] No se crea ni usa Azure SQL.
+- [x] El handoff indica `Uso Azure SQL: No`.
 
 ## Verificacion esperada
 

@@ -75,7 +75,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-069` - Preparar paquete local de publicacion por patch o bundle | Ejecucion Tecnica / Infra | P2 recomendable | Round 53 | `TASK-068` | `tasks/TASK-069-HANDOFF.md` |
 
 ## QA
 
@@ -158,6 +157,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-066` - Consolidar commit de cierre pilot Infra | Ejecucion Tecnica / Infra | P2 recomendable | Round 50 | `TASK-065` | `tasks/TASK-066-HANDOFF.md` |
 | `TASK-067` - Publicar commits locales de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 51 | `TASK-066` | `tasks/TASK-067-HANDOFF.md` |
 | `TASK-068` - Publicar cierre pilot desde canal permitido | Ejecucion Tecnica / Infra | P2 recomendable | Round 52 | `TASK-067` | `tasks/TASK-068-HANDOFF.md` |
+| `TASK-069` - Preparar paquete local de publicacion por patch o bundle | Ejecucion Tecnica / Infra | P2 recomendable | Round 53 | `TASK-068` | `tasks/TASK-069-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

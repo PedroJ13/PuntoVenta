@@ -65,7 +65,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Nota |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-068` - Publicar cierre pilot desde canal permitido | Ejecucion Tecnica / Infra | P2 recomendable | Round 52 | `TASK-067` | `tasks/TASK-068.md` |
 
 ## In Progress
 
@@ -76,6 +75,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-068` - Publicar cierre pilot desde canal permitido | Ejecucion Tecnica / Infra | P2 recomendable | Round 52 | `TASK-067` | `tasks/TASK-068-HANDOFF.md` |
 
 ## QA
 

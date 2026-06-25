@@ -6,19 +6,19 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-068` creada y asignada a Ejecucion Tecnica / Infra para publicar cierre pilot desde canal permitido.
+- `TASK-068` entregada a revision con bloqueo de politica para publicar cierre pilot.
 - API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
 - Azure SQL sigue fuera del primer deploy.
 
 ## Siguiente
 
-- Publicar commits locales fuera de este canal o habilitar un canal permitido para `git push origin main`.
-- Procesar handoff de `TASK-068` cuando el equipo lo entregue.
+- Procesar handoff de `TASK-068`.
+- Publicar commits locales fuera de este canal o habilitar un destino/canal permitido por politica.
 - Mantener Azure SQL fuera hasta tarea explicita.
 
 ## Bloqueado
 
-- Push de commits de cierre pilot bloqueado por politica del entorno. Ver `docs/CURRENT_BLOCKERS.md`.
+- Push de commits de cierre pilot bloqueado por politica del entorno tambien en `TASK-068`. Ver `docs/CURRENT_BLOCKERS.md`.
 
 ## Hecho reciente
 
@@ -50,6 +50,7 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 - `TASK-065`: baseline reproducible Web/API pilot documentado.
 - `TASK-066`: commits locales de cierre pilot creados; push bloqueado por aprobacion explicita.
 - `TASK-067`: intento de push documentado; bloqueo persiste por politica del entorno.
+- `TASK-068`: intento directo de `git push origin main` desde canal disponible rechazado por politica del entorno.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 
 ## Decision necesaria

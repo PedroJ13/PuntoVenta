@@ -86,7 +86,8 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Ejecutar `TASK-068`: publicar commits locales de cierre pilot fuera de este canal o mediante un canal permitido.
+- Procesar `TASK-068`: intento directo de publicacion rechazado por politica del entorno.
+- Publicar commits locales fuera de este canal o habilitar un destino/canal permitido por politica.
 - Mantener cierre pilot como baseline operativo Web/API sin Azure SQL.
 
 ### Bloqueado
@@ -164,6 +165,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-065`: baseline pilot reproducible Web/API documentado.
 - `TASK-066`: commits locales de cierre pilot consolidados.
 - `TASK-067`: intento de publicacion de commits de cierre pilot documentado; bloqueo externo persiste.
+- `TASK-068`: intento de `git push origin main` desde canal disponible rechazado por politica del entorno.
 
 ## Riesgos principales
 
@@ -176,5 +178,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Ejecutar `TASK-068` para publicar los commits locales de cierre pilot por un canal permitido fuera de este entorno. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
+Publicar manualmente los commits locales de cierre pilot fuera de este entorno o habilitar un destino/canal permitido por politica. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
 

@@ -2,7 +2,7 @@
 
 ## Estado
 
-Assigned
+Needs Review
 
 ## Equipo responsable
 
@@ -65,11 +65,11 @@ Publicar los commits locales pendientes de cierre pilot en `origin/main` usando 
 
 ## Criterios de aceptacion
 
-- [ ] Commits locales de cierre pilot quedan publicados en `origin/main`, o bloqueo exacto queda documentado.
-- [ ] Estado local/remoto posterior queda documentado.
-- [ ] No se exponen secretos.
-- [ ] No se crea ni usa Azure SQL.
-- [ ] El handoff indica `Uso Azure SQL: No`.
+- [x] Commits locales de cierre pilot quedan publicados en `origin/main`, o bloqueo exacto queda documentado.
+- [x] Estado local/remoto posterior queda documentado.
+- [x] No se exponen secretos.
+- [x] No se crea ni usa Azure SQL.
+- [x] El handoff indica `Uso Azure SQL: No`.
 
 ## Verificacion esperada
 

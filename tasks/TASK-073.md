@@ -2,7 +2,7 @@
 
 ## Estado
 
-Blocked
+Needs Review
 
 ## Nombre del Equipo
 
@@ -55,11 +55,11 @@ Preparar el paquete de migraciones y seeds ficticios para ejecutar en Azure SQL 
 
 ## Criterios de aceptacion
 
-- [ ] Migraciones revisadas para Azure SQL.
-- [ ] Seeds ficticios definidos o decision de no incluirlos documentada.
-- [ ] Orden de ejecucion documentado.
-- [ ] Riesgos de datos/tenant/integridad documentados.
-- [ ] Handoff indica si se uso Azure SQL.
+- [x] Migraciones revisadas para Azure SQL.
+- [x] Seeds ficticios definidos o decision de no incluirlos documentada.
+- [x] Orden de ejecucion documentado.
+- [x] Riesgos de datos/tenant/integridad documentados.
+- [x] Handoff indica si se uso Azure SQL.
 
 ## Verificacion esperada
 
@@ -69,4 +69,4 @@ Preparar el paquete de migraciones y seeds ficticios para ejecutar en Azure SQL 
 
 ## Dependencia
 
-Bloqueada hasta que Proyecto procese `TASK-072` y autorice esta tarea.
+Liberada por Proyecto tras procesar `TASK-072`. Sigue fuera de alcance crear, conectar o usar Azure SQL.

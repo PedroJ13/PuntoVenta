@@ -84,6 +84,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-070` valido publicacion remota del cierre pilot: `origin/main` coincide con `0c8d2deb2245552c67e61968849a6135066c3d4e`, GitHub Actions API por push quedo exitoso, Web/API responden `HTTP 200` y Azure SQL sigue fuera.
 - `TASK-071` aprobo como PO la pantalla de ventas publicada para demo/piloto funcional.
 - `TASK-072` definio decision/plan de persistencia real cloud: recomienda Azure SQL pilot con migraciones revisables, provisionamiento autorizado, conexion API, smoke tecnico y QA publicado en tareas separadas.
+- `TASK-073` preparo el paquete revisable de migraciones y seed ficticio para Azure SQL pilot sin ejecutar SQL real ni crear recursos cloud.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 - Repo local Git inicializado.
 - Flujo Codex de Proyecto / Pulso / QA / Ejecucion Tecnica incorporado al repo.
@@ -91,7 +92,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Procesar handoff de `TASK-072`.
+- Procesar handoff de `TASK-073`.
 - Mantener Azure SQL fuera hasta autorizacion explicita posterior para `TASK-074` o tarea equivalente.
 
 ### Bloqueado
@@ -175,6 +176,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-070`: publicacion remota de cierre pilot validada.
 - `TASK-071`: PO Test publicado de pantalla de ventas aprobado.
 - `TASK-072`: decision/plan de persistencia real cloud preparado.
+- `TASK-073`: migraciones Azure SQL revisables para pilot preparadas.
 
 ## Riesgos principales
 
@@ -187,5 +189,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Procesar `TASK-072`. Si Proyecto/PO acepta la ruta, liberar `TASK-073`; mantener `TASK-074` bloqueada hasta autorizacion explicita de Azure SQL.
+Procesar `TASK-073`; mantener `TASK-074` bloqueada hasta autorizacion explicita de Azure SQL, presupuesto/SKU, region y responsable.
 

@@ -6,14 +6,14 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-067`: push remoto bloqueado por politica del entorno; handoff pendiente de procesar.
-- `TASK-064` a `TASK-066` cerradas por Proyecto.
+- `TASK-068` creada y asignada a Ejecucion Tecnica / Infra para publicar cierre pilot desde canal permitido.
 - API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
+- Azure SQL sigue fuera del primer deploy.
 
 ## Siguiente
 
-- Procesar handoff `TASK-067`.
 - Publicar commits locales fuera de este canal o habilitar un canal permitido para `git push origin main`.
+- Procesar handoff de `TASK-068` cuando el equipo lo entregue.
 - Mantener Azure SQL fuera hasta tarea explicita.
 
 ## Bloqueado
@@ -54,4 +54,4 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Decision necesaria
 
-- Ninguna decision inmediata. Azure SQL queda fuera del primer deploy.
+- Publicacion externa de commits de cierre pilot. Azure SQL queda fuera del primer deploy.

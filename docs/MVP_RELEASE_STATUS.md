@@ -74,6 +74,11 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - Secrets GitHub pilot configurados por `TASK-060`; Web workflow quedo exitoso y API workflow falla por Kudu `401` con `basicPublishingCredentialsPolicies/scm allow:false`.
 - SCM basic publishing temporal habilitado por `TASK-061`; API workflow quedo exitoso, Web workflow sigue exitoso y Web/API publicos responden `HTTP 200`.
 - QA publicado Web/API pilot aprobado con observaciones por `TASK-062`; sin P0/P1 y sin Azure SQL.
+- API deploy migrado a OIDC/RBAC por `TASK-063`; SCM y FTP basic publishing apagados.
+- CORS API pilot restringido al origen Web publicado por `TASK-064`.
+- Baseline pilot reproducible Web/API documentado por `TASK-065`.
+- Commits locales de cierre pilot consolidados por `TASK-066`; push bloqueado por politica del entorno.
+- Intento de publicacion de commits de cierre pilot documentado por `TASK-067`; bloqueo externo persiste.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 - Repo local Git inicializado.
 - Flujo Codex de Proyecto / Pulso / QA / Ejecucion Tecnica incorporado al repo.
@@ -81,12 +86,13 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Procesar `TASK-067`: push remoto bloqueado por politica del entorno.
-- Publicar commits locales fuera de este canal o habilitar un canal permitido; luego decidir si basta cierre documental o QA ligera de regresion publicada.
+- Ejecutar `TASK-068`: publicar commits locales de cierre pilot fuera de este canal o mediante un canal permitido.
+- Mantener cierre pilot como baseline operativo Web/API sin Azure SQL.
 
 ### Bloqueado
 
 - Azure SQL pausado hasta tarea explicita futura.
+- Push remoto de commits de cierre pilot bloqueado por politica del entorno.
 
 ### Hecho
 
@@ -156,6 +162,8 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-063`: API deploy migrado a OIDC/RBAC; SCM y FTP basic publishing apagados.
 - `TASK-064`: CORS API pilot restringido al origen Web publicado.
 - `TASK-065`: baseline pilot reproducible Web/API documentado.
+- `TASK-066`: commits locales de cierre pilot consolidados.
+- `TASK-067`: intento de publicacion de commits de cierre pilot documentado; bloqueo externo persiste.
 
 ## Riesgos principales
 
@@ -168,5 +176,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Procesar handoffs de cierre Infra pilot y decidir si se requiere QA ligera publicada. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
+Ejecutar `TASK-068` para publicar los commits locales de cierre pilot por un canal permitido fuera de este entorno. Mantener Azure SQL sin uso hasta una tarea explicita de migracion o smoke real.
 

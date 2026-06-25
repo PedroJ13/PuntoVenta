@@ -21,6 +21,8 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 - Cada tarea debe existir como `tasks/TASK-###.md` o `tasks/TASK-###-assignment.md`.
 - Una tarea debe aparecer una sola vez en el tablero.
 - Proyecto crea y prioriza tareas.
+- Toda tarea creada por Proyecto debe incluir `Nombre del Equipo`, `Modo`, `Nombre de la tarea`, handoff esperado, documentos a leer, objetivo, fuera de alcance y verificacion esperada.
+- Al usuario se le entrega solo el prompt corto de asignacion: `Nombre del Equipo`, `Modo`, `Nombre de la tarea` y handoff esperado. El detalle completo vive en `tasks/TASK-###.md`.
 - Proyecto libera tareas por ronda moviendolas a `Ready` o `Assigned`.
 - El chat responsable puede mover solo su tarea asignada, respetando el alcance.
 - Un chat solo puede tomar tareas en `Ready` o `Assigned` si estan asignadas a su equipo y no tienen dependencias pendientes.
@@ -63,6 +65,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Nota |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-068` - Publicar cierre pilot desde canal permitido | Ejecucion Tecnica / Infra | P2 recomendable | Round 52 | `TASK-067` | `tasks/TASK-068.md` |
 
 ## In Progress
 
@@ -73,7 +76,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-067` - Publicar commits locales de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 51 | `TASK-066` | `tasks/TASK-067-HANDOFF.md` |
 
 ## QA
 
@@ -154,6 +156,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-064` - Restringir CORS API pilot a Web publicada | Ejecucion Tecnica / Infra | P2 recomendable | Round 48 | `TASK-063` | `tasks/TASK-064-HANDOFF.md` |
 | `TASK-065` - Documentar baseline pilot reproducible Web API | Ejecucion Tecnica / Infra | P2 recomendable | Round 49 | `TASK-064` | `tasks/TASK-065-HANDOFF.md` |
 | `TASK-066` - Consolidar commit de cierre pilot Infra | Ejecucion Tecnica / Infra | P2 recomendable | Round 50 | `TASK-065` | `tasks/TASK-066-HANDOFF.md` |
+| `TASK-067` - Publicar commits locales de cierre pilot | Ejecucion Tecnica / Infra | P2 recomendable | Round 51 | `TASK-066` | `tasks/TASK-067-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

@@ -2,7 +2,7 @@
 
 ## Estado
 
-Needs Review
+Done
 
 ## Equipo responsable
 

@@ -22,16 +22,19 @@ Proyecto coordina. Cada chat especializado trabaja tareas pequenas con un unico 
 
 Una tarea esta lista cuando incluye:
 
+- `Nombre del Equipo`;
+- `Modo` si aplica, obligatorio para `Ejecucion Tecnica`;
+- `Nombre de la tarea`;
+- handoff esperado: `Al finalizar, debe crear o actualizar tasks/TASK-###-HANDOFF.md`;
+- `Leer antes de trabajar`;
 - objetivo claro;
-- equipo/chat responsable;
-- modo de ejecucion si aplica;
 - prioridad;
 - dependencias;
-- documentos a leer;
 - alcance y fuera de alcance;
 - criterios de aceptacion;
+- verificacion esperada;
 - uso permitido o prohibido de cloud, SQL y servicios externos;
-- handoff esperado.
+- limites de secretos/tokens/connection strings si aplica.
 
 ## Definition of Done
 
@@ -59,6 +62,19 @@ Un handoff debe permitir cierre por Proyecto sin adivinar:
 8. El equipo mueve la tarea a `Needs Review`, `QA` o `Blocked`, segun resultado.
 9. Proyecto procesa el handoff y actualiza release status, backlog, decision log y tablero.
 10. Proyecto actualiza `docs/ESTADO_OPERATIVO.md` y `docs/CURRENT_BLOCKERS.md` si el estado vivo cambio.
+
+## Prompt de asignacion corto
+
+El archivo `tasks/TASK-###.md` debe contener la tarea completa. Para el usuario, Proyecto debe entregar un prompt corto:
+
+```text
+Nombre del Equipo: <equipo/chat>
+Modo: <modo>
+Nombre de la tarea: TASK-### - <titulo>
+Al finalizar, debe crear o actualizar tasks/TASK-###-HANDOFF.md usando el formato de handoff indicado.
+```
+
+El chat responsable obtiene el resto del contexto leyendo `tasks/TASK-###.md` y los documentos indicados en esa tarea.
 
 ## Chats reales del proyecto
 

@@ -1,18 +1,16 @@
+import { markSqlAvailable, markSqlFallback } from "./fallbackStorageState.js";
+
 export function createFallbackReportRepository({ primary, fallback, storageState }) {
   async function usePrimary(operation) {
     if (!primary) return { ok: false };
 
     try {
       const result = await operation(primary);
-      storageState.mode = "sql-local";
-      storageState.reports = "sql-local";
-      storageState.sqlAvailable = true;
+      markSqlAvailable(storageState, "reports");
       return { ok: true, result };
     } catch (error) {
       if (error?.code && error?.status) throw error;
-      storageState.mode = "fake-fallback";
-      storageState.reports = "fake";
-      storageState.sqlAvailable = false;
+      markSqlFallback(storageState, "reports", error);
       return { ok: false };
     }
   }

@@ -1,18 +1,16 @@
+import { markSqlAvailable, markSqlFallback } from "./fallbackStorageState.js";
+
 export function createFallbackOpenAccountRepository({ primary, fallback, storageState }) {
   async function usePrimary(operation) {
     if (!primary) return null;
 
     try {
       const result = await operation(primary);
-      storageState.mode = "sql-local";
-      storageState.openAccounts = "sql-local";
-      storageState.sqlAvailable = true;
+      markSqlAvailable(storageState, "openAccounts");
       return result;
     } catch (error) {
       if (error?.code && error?.status) throw error;
-      storageState.mode = "fake-fallback";
-      storageState.openAccounts = "fake";
-      storageState.sqlAvailable = false;
+      markSqlFallback(storageState, "openAccounts", error);
       return null;
     }
   }

@@ -92,6 +92,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-080` preparo la plantilla XLSX de carga inicial real y checklist de validacion previa, sin cargar datos ni tocar Azure SQL.
 - `TASK-082` corrigio health cold start para refrescar disponibilidad SQL real antes de responder.
 - `TASK-083` actualizo el runbook baseline pilot para Azure SQL activo.
+- `TASK-084` publico la correccion de health API pilot; workflow API `28245333115` quedo exitoso y health publicado confirma `sqlAvailable=true`.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 - Repo local Git inicializado.
 - Flujo Codex de Proyecto / Pulso / QA / Ejecucion Tecnica incorporado al repo.
@@ -100,13 +101,13 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 ### Siguiente
 
 - Completar `TASK-081`: PO revisa plantilla/checklist y define fuente real inicial.
-- Desbloquear `TASK-084`: publicar el commit local pendiente (`HEAD`) desde canal permitido y validar baseline publicado.
+- Desbloquear `TASK-085`: publicar el commit documental local pendiente (`HEAD`) desde canal permitido.
 - Mantener datos reales fuera hasta aprobar fuente/archivo completado y abrir tarea explicita de scripts o carga.
 
 ### Bloqueado
 
 - Datos reales bloqueados hasta aprobar fuente/archivo completado y tarea explicita de scripts o carga.
-- `TASK-084` bloqueada por politica de exfiltracion al intentar `git push origin main` desde esta sesion.
+- `TASK-085` bloqueada por politica de exfiltracion al intentar `git push origin main` desde esta sesion.
 - Sin bloqueo activo de push de cierre pilot; remoto validado por `TASK-070`.
 
 ### Hecho
@@ -194,6 +195,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-080`: plantilla de carga inicial real y checklist de validacion preparados sin tocar Azure SQL.
 - `TASK-082`: health cold start ajustado para reflejar disponibilidad SQL real.
 - `TASK-083`: runbook baseline pilot actualizado con Azure SQL activo.
+- `TASK-084`: correccion health API pilot publicada y validada.
 
 ## Riesgos principales
 
@@ -206,5 +208,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Completar `TASK-081` y desbloquear `TASK-084` publicando el commit local desde canal permitido; no cargar datos reales sin fuente completada/aprobada, validacion previa, scripts revisables y mitigacion.
+Completar `TASK-081` y desbloquear `TASK-085` publicando el commit documental desde canal permitido; no cargar datos reales sin fuente completada/aprobada, validacion previa, scripts revisables y mitigacion.
 

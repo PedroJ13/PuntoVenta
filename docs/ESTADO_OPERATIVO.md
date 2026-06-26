@@ -7,18 +7,18 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 ## Ahora
 
 - `TASK-081` asignada a PO Test: revisar plantilla/checklist y definir si existe fuente real inicial aprobable.
-- `TASK-084` bloqueada: commit local listo, push a GitHub rechazado por politica del entorno.
-- API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
+- `TASK-085` bloqueada: cierre documental local listo, push a GitHub rechazado por politica del entorno.
+- Azure SQL pilot activo para API con `PV_SQLSERVER_ENABLED=true`; health publicado confirma `sqlAvailable=true`.
 
 ## Siguiente
 
 - Esperar `TASK-081-HANDOFF.md`.
-- Publicar el commit local pendiente (`HEAD`) desde canal permitido externo a esta sesion, luego reintentar validacion publicada.
+- Publicar el commit documental local pendiente (`HEAD`) desde canal permitido externo a esta sesion.
 - Mantener datos reales fuera hasta aprobar archivo/fuente completado y abrir tarea explicita de scripts o carga.
 
 ## Bloqueado
 
-- `TASK-084`: `git push origin main` rechazado por politica de exfiltracion del entorno; requiere canal permitido externo a esta sesion.
+- `TASK-085`: `git push origin main` rechazado por politica de exfiltracion del entorno; requiere canal permitido externo a esta sesion.
 
 ## Hecho reciente
 
@@ -65,6 +65,7 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 - `TASK-080`: plantilla XLSX de carga inicial real y checklist de validacion preparados; no se cargo data real.
 - `TASK-082`: health cold start ajustado para refrescar disponibilidad SQL antes de responder.
 - `TASK-083`: runbook baseline pilot actualizado para Azure SQL activo.
+- `TASK-084`: correccion health publicada; API workflow `28245333115` exitoso y health publicado confirma `sqlAvailable=true`.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 
 ## Decision necesaria

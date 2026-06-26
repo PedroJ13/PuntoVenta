@@ -86,7 +86,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Motivo |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-084` - Publicar correccion health API pilot y validar baseline | Ejecucion Tecnica / Infra | P2 observacion QA | Round 67 | `TASK-082`, `TASK-083` | Commit local pendiente listo; `git push origin main` rechazado por politica de exfiltracion del entorno |
+| `TASK-085` - Consolidar y publicar cierre documental post TASK-084 | Ejecucion Tecnica / Infra | P2 higiene proyecto | Round 68 | `TASK-084` | Commit local pendiente listo; `git push origin main` rechazado por politica de exfiltracion del entorno |
 
 ## Done
 
@@ -173,6 +173,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-080` - Preparar plantilla de carga inicial real y checklist de validacion | Ejecucion Tecnica / SQL DEV-Data | P1 nueva fase | Round 63 | `TASK-079` | `tasks/TASK-080-HANDOFF.md` |
 | `TASK-082` - Corregir health cold start para reflejar estado SQL real | Ejecucion Tecnica / Backend-API | P2 observacion QA | Round 65 | `TASK-076` | `tasks/TASK-082-HANDOFF.md` |
 | `TASK-083` - Actualizar runbook baseline pilot con Azure SQL activo | Ejecucion Tecnica / Infra | P3 observacion QA | Round 66 | `TASK-076` | `tasks/TASK-083-HANDOFF.md` |
+| `TASK-084` - Publicar correccion health API pilot y validar baseline | Ejecucion Tecnica / Infra | P2 observacion QA | Round 67 | `TASK-082`, `TASK-083` | `tasks/TASK-084-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

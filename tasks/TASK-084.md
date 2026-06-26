@@ -2,7 +2,7 @@
 
 ## Estado
 
-Blocked
+Done
 
 ## Nombre del Equipo
 

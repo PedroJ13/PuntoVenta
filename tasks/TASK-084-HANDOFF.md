@@ -79,7 +79,17 @@ git push origin main
 
 Luego reabrir `TASK-084` para validar workflow/API health publicado.
 
+Actualizacion Proyecto 2026-06-26:
+
+- Push confirmado en remoto: `origin/main` apunta a `7d19fdc952dffeab3b47b34585c07b0493c79e69`.
+- Workflow API pilot confirmado en `success` para `7d19fdc`, run `28245333115`.
+- Web pilot confirmada con `HTTP 200`.
+- `GET /api/health` publicado confirmado con `HTTP 200`, `storage=sql-local`, `sqlConfigured=true`, `sqlAvailable=true`.
+- CORS permitido confirmado para `https://gray-beach-00a0f870f.7.azurestaticapps.net`.
+- Origen externo `https://example.invalid` confirmado rechazado con `HTTP 400` y sin `Access-Control-Allow-Origin`.
+- No se cargaron datos reales ni se tocaron recursos Azure desde Proyecto; validacion hecha por HTTP/GitHub.
+
 Movimiento de tablero:
 
 - De: `Assigned`
-- A: `Blocked`
+- A: `Done`

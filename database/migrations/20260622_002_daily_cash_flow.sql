@@ -2,6 +2,9 @@
 -- Target dialect: Azure SQL / SQL Server.
 -- Local-review only for TASK-029; do not run against SQL Server local or Azure SQL without an explicit execution task.
 
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
+
 BEGIN TRANSACTION;
 
 ALTER TABLE dbo.cash_shifts

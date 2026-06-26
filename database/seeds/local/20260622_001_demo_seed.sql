@@ -7,6 +7,8 @@
 -- Idempotence:
 --   Safe to run more than once. Existing demo rows are updated by stable natural keys.
 
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
 SET XACT_ABORT ON;
 BEGIN TRANSACTION;
 

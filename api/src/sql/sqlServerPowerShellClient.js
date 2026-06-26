@@ -5,36 +5,41 @@ $ErrorActionPreference = 'Stop'
 $inputJson = [Console]::In.ReadToEnd()
 $payload = $inputJson | ConvertFrom-Json
 
-$hostName = $env:PV_SQLSERVER_HOST
-if ([string]::IsNullOrWhiteSpace($hostName)) { $hostName = 'localhost\SQLEXPRESS' }
-
-$database = $env:PV_SQLSERVER_DATABASE
-if ([string]::IsNullOrWhiteSpace($database)) { throw 'PV_SQLSERVER_DATABASE is required.' }
-
-$authMode = $env:PV_SQLSERVER_AUTH_MODE
-if ([string]::IsNullOrWhiteSpace($authMode)) { $authMode = 'windows' }
-
-$encrypt = $env:PV_SQLSERVER_ENCRYPT
-if ([string]::IsNullOrWhiteSpace($encrypt)) { $encrypt = 'false' }
-
-$trustCert = $env:PV_SQLSERVER_TRUST_CERT
-if ([string]::IsNullOrWhiteSpace($trustCert)) { $trustCert = 'true' }
-
-$builder = [System.Data.SqlClient.SqlConnectionStringBuilder]::new()
-$builder['Data Source'] = $hostName
-$builder['Initial Catalog'] = $database
-$builder['Encrypt'] = [System.Convert]::ToBoolean($encrypt)
-$builder['TrustServerCertificate'] = [System.Convert]::ToBoolean($trustCert)
-
-if ($authMode -eq 'sql') {
-  if ([string]::IsNullOrWhiteSpace($env:PV_SQLSERVER_USER) -or [string]::IsNullOrWhiteSpace($env:PV_SQLSERVER_PASSWORD)) {
-    throw 'SQL auth requires local user and password environment variables.'
-  }
-  $builder['Integrated Security'] = $false
-  $builder['User ID'] = $env:PV_SQLSERVER_USER
-  $builder['Password'] = $env:PV_SQLSERVER_PASSWORD
+$connectionString = $env:SQL_CONNECTION_STRING
+if (![string]::IsNullOrWhiteSpace($connectionString)) {
+  $builder = [System.Data.SqlClient.SqlConnectionStringBuilder]::new($connectionString)
 } else {
-  $builder['Integrated Security'] = $true
+  $hostName = $env:PV_SQLSERVER_HOST
+  if ([string]::IsNullOrWhiteSpace($hostName)) { $hostName = 'localhost\SQLEXPRESS' }
+
+  $database = $env:PV_SQLSERVER_DATABASE
+  if ([string]::IsNullOrWhiteSpace($database)) { throw 'PV_SQLSERVER_DATABASE is required.' }
+
+  $authMode = $env:PV_SQLSERVER_AUTH_MODE
+  if ([string]::IsNullOrWhiteSpace($authMode)) { $authMode = 'windows' }
+
+  $encrypt = $env:PV_SQLSERVER_ENCRYPT
+  if ([string]::IsNullOrWhiteSpace($encrypt)) { $encrypt = 'false' }
+
+  $trustCert = $env:PV_SQLSERVER_TRUST_CERT
+  if ([string]::IsNullOrWhiteSpace($trustCert)) { $trustCert = 'true' }
+
+  $builder = [System.Data.SqlClient.SqlConnectionStringBuilder]::new()
+  $builder['Data Source'] = $hostName
+  $builder['Initial Catalog'] = $database
+  $builder['Encrypt'] = [System.Convert]::ToBoolean($encrypt)
+  $builder['TrustServerCertificate'] = [System.Convert]::ToBoolean($trustCert)
+
+  if ($authMode -eq 'sql') {
+    if ([string]::IsNullOrWhiteSpace($env:PV_SQLSERVER_USER) -or [string]::IsNullOrWhiteSpace($env:PV_SQLSERVER_PASSWORD)) {
+      throw 'SQL auth requires local user and password environment variables.'
+    }
+    $builder['Integrated Security'] = $false
+    $builder['User ID'] = $env:PV_SQLSERVER_USER
+    $builder['Password'] = $env:PV_SQLSERVER_PASSWORD
+  } else {
+    $builder['Integrated Security'] = $true
+  }
 }
 
 $connection = [System.Data.SqlClient.SqlConnection]::new($builder.ConnectionString)

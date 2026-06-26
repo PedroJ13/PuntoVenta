@@ -2,6 +2,9 @@
 -- Target dialect: Azure SQL / SQL Server.
 -- Local-review only for TASK-002; do not run against Azure SQL without an explicit migration task.
 
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
+
 CREATE TABLE dbo.companies (
     id INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
     name NVARCHAR(160) NOT NULL,

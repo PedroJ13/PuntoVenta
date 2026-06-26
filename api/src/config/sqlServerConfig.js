@@ -1,16 +1,18 @@
 export function getSqlServerConfig(env = process.env) {
   const enabled = parseBoolean(env.PV_SQLSERVER_ENABLED);
   const database = trimToNull(env.PV_SQLSERVER_DATABASE);
+  const connectionString = trimToNull(env.SQL_CONNECTION_STRING);
 
-  if (!enabled || !database) {
+  if (!enabled || (!database && !connectionString)) {
     return {
       enabled: false,
-      reason: enabled ? "missing_database" : "disabled"
+      reason: enabled ? "missing_database_or_connection_string" : "disabled"
     };
   }
 
   return {
     enabled: true,
+    hasConnectionString: Boolean(connectionString),
     host: trimToNull(env.PV_SQLSERVER_HOST) || "localhost\\SQLEXPRESS",
     database,
     authMode: trimToNull(env.PV_SQLSERVER_AUTH_MODE) || "windows",

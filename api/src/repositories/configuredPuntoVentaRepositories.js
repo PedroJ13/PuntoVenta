@@ -1,4 +1,5 @@
 import { getSqlServerConfig } from "../config/sqlServerConfig.js";
+import { createSqlServerNodeClient } from "../sql/sqlServerNodeClient.js";
 import { createSqlServerPowerShellClient } from "../sql/sqlServerPowerShellClient.js";
 import { createFallbackCashShiftRepository } from "./fallbackCashShiftRepository.js";
 import { createFallbackCatalogRepository } from "./fallbackCatalogRepository.js";
@@ -34,7 +35,7 @@ export function createConfiguredPuntoVentaRepositories({ env = process.env } = {
     };
   }
 
-  const sqlClient = createSqlServerPowerShellClient({ config: sqlConfig, env });
+  const sqlClient = createSqlClient({ config: sqlConfig, env });
   const sqlCatalog = createSqlCatalogRepository({
     sqlClient,
     companyTaxId: sqlConfig.companyTaxId
@@ -87,4 +88,12 @@ export function createConfiguredPuntoVentaRepositories({ env = process.env } = {
     },
     storageStatus: () => ({ ...storageState })
   };
+}
+
+function createSqlClient({ config, env }) {
+  if (config.hasConnectionString || config.authMode === "sql") {
+    return createSqlServerNodeClient({ config, env });
+  }
+
+  return createSqlServerPowerShellClient({ config, env });
 }

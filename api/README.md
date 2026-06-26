@@ -148,6 +148,7 @@ La API no guarda connection strings. Si SQL no esta configurado o no responde, `
 
 Notas de alcance:
 
+- En Azure Functions, usar `PV_SQLSERVER_AUTH_MODE=sql` o `SQL_CONNECTION_STRING` para activar el cliente SQL Node.
 - Cuentas abiertas en SQL usan `PV_SQLSERVER_COMPANY_TAX_ID` para resolver empresa server-side.
 - El usuario SQL operativo se resuelve desde los usuarios demo del seed local (`admin.demo@puntoventa.local` o `cajero.demo@puntoventa.local`).
 - Caja diaria SQL permite consultar turno actual, abrir turno, registrar movimientos manuales y cerrar con arqueo/diferencia.

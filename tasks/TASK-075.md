@@ -2,7 +2,7 @@
 
 ## Estado
 
-Blocked
+Needs Review
 
 ## Nombre del Equipo
 
@@ -55,11 +55,11 @@ Conectar la API pilot publicada a Azure SQL usando la configuracion segura provi
 
 ## Criterios de aceptacion
 
-- [ ] API pilot usa Azure SQL o bloqueo exacto documentado.
-- [ ] Migraciones/seeds autorizados ejecutados o bloqueo documentado.
-- [ ] Smoke tecnico publicado pasa o fallas quedan clasificadas.
-- [ ] No se rompen contratos API del MVP.
-- [ ] Handoff indica `Uso Azure SQL: Si` si hubo conexion real.
+- [x] API pilot usa Azure SQL o bloqueo exacto documentado.
+- [x] Migraciones/seeds autorizados ejecutados o bloqueo documentado.
+- [x] Smoke tecnico publicado pasa o fallas quedan clasificadas.
+- [x] No se rompen contratos API del MVP.
+- [x] Handoff indica `Uso Azure SQL: Si` si hubo conexion real.
 
 ## Verificacion esperada
 
@@ -70,4 +70,4 @@ Conectar la API pilot publicada a Azure SQL usando la configuracion segura provi
 
 ## Dependencia
 
-Bloqueada hasta que `TASK-077` cierre los guardrails de Azure SQL pilot costo minimo y confirme que la API puede pasar a conexion/smoke.
+Liberada por Proyecto tras cierre de `TASK-077`. Azure SQL existe y guardrails de costo minimo fueron confirmados; esta tarea puede aplicar migraciones aprobadas, conectar API pilot y ejecutar smoke controlado.

@@ -86,6 +86,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-072` definio decision/plan de persistencia real cloud: recomienda Azure SQL pilot con migraciones revisables, provisionamiento autorizado, conexion API, smoke tecnico y QA publicado en tareas separadas.
 - `TASK-073` preparo el paquete revisable de migraciones y seed ficticio para Azure SQL pilot sin ejecutar SQL real ni crear recursos cloud.
 - `TASK-074` provisiono Azure SQL pilot en `brazilsouth` con serverless bajo, usuario runtime minimo y `SQL_CONNECTION_STRING` en Function App; la API sigue con `PV_SQLSERVER_ENABLED=false`.
+- `TASK-075` conecto la API pilot a Azure SQL, ejecuto migraciones/seed demo autorizados y aprobo smoke tecnico publicado con `sqlConfigured=true` y `sqlAvailable=true`.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 - Repo local Git inicializado.
 - Flujo Codex de Proyecto / Pulso / QA / Ejecucion Tecnica incorporado al repo.
@@ -93,13 +94,12 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Procesar handoff de `TASK-077`.
-- Mantener migraciones/conexion API/smoke publicados para `TASK-075` tras aceptar guardrails.
+- Procesar `TASK-075-HANDOFF.md`.
+- Si Proyecto acepta el handoff, liberar `TASK-076` para QA publicado Web/API con persistencia Azure SQL.
 
 ### Bloqueado
 
-- Conexion API a Azure SQL pausada hasta liberar `TASK-075`.
-- QA publicado con persistencia Azure SQL bloqueado hasta `TASK-075`.
+- QA publicado con persistencia Azure SQL pendiente de liberacion de Proyecto tras procesar `TASK-075`.
 - Sin bloqueo activo de push de cierre pilot; remoto validado por `TASK-070`.
 
 ### Hecho
@@ -180,6 +180,7 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-073`: migraciones Azure SQL revisables para pilot preparadas.
 - `TASK-074`: Azure SQL pilot provisionado y configurado sin activar runtime SQL en API.
 - `TASK-077`: guardrails Azure SQL pilot costo minimo ajustados.
+- `TASK-075`: API pilot conectada a Azure SQL con smoke tecnico publicado aprobado.
 
 ## Riesgos principales
 
@@ -192,5 +193,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Procesar `TASK-077`; si se acepta, liberar `TASK-075` para conectar API pilot a Azure SQL y ejecutar smoke tecnico controlado.
+Procesar `TASK-075-HANDOFF.md`; si se acepta, liberar `TASK-076` para QA publicado Web/API con persistencia Azure SQL.
 

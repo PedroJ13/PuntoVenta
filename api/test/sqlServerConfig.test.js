@@ -4,7 +4,7 @@ import { getSqlServerConfig } from "../src/config/sqlServerConfig.js";
 
 test("SQL Server config stays disabled when the feature flag is off", () => {
   const config = getSqlServerConfig({
-    SQL_CONNECTION_STRING: "Server=tcp:example.database.windows.net,1433;Initial Catalog=PuntoVenta;User ID=user;Password=secret"
+    SQL_CONNECTION_STRING: "Server=tcp:example.database.windows.net,1433;Initial Catalog=PuntoVenta;Authentication=Active Directory Default"
   });
 
   assert.deepEqual(config, {
@@ -16,7 +16,7 @@ test("SQL Server config stays disabled when the feature flag is off", () => {
 test("SQL Server config accepts Azure runtime connection string without exposing it", () => {
   const config = getSqlServerConfig({
     PV_SQLSERVER_ENABLED: "true",
-    SQL_CONNECTION_STRING: "Server=tcp:example.database.windows.net,1433;Initial Catalog=PuntoVenta;User ID=user;Password=secret"
+    SQL_CONNECTION_STRING: "Server=tcp:example.database.windows.net,1433;Initial Catalog=PuntoVenta;Authentication=Active Directory Default"
   });
 
   assert.equal(config.enabled, true);

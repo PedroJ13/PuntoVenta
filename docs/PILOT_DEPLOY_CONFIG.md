@@ -2,7 +2,7 @@
 
 ## Estado
 
-Configuracion de deploy pilot para PuntoVenta Web + API sin Azure SQL.
+Configuracion de deploy pilot para PuntoVenta Web + API con Azure SQL habilitado para la API.
 
 Este documento no contiene valores secretos.
 
@@ -31,10 +31,10 @@ Ambos workflows se pueden ejecutar manualmente con `workflow_dispatch`.
 | Setting                | Valor                                                |
 | ---------------------- | ---------------------------------------------------- |
 | `APP_ENV`              | `pilot`                                              |
-| `PV_SQLSERVER_ENABLED` | `false`                                              |
+| `PV_SQLSERVER_ENABLED` | `true`                                               |
 | `ALLOWED_ORIGINS`      | `https://gray-beach-00a0f870f.7.azurestaticapps.net` |
 
-`SQL_CONNECTION_STRING` esta configurado en Azure Functions como secreto runtime, sin valor en repo. La API sigue con `PV_SQLSERVER_ENABLED=false` hasta `TASK-075`.
+`SQL_CONNECTION_STRING` y las variables SQL runtime estan configuradas en Azure Functions como secretos/app settings, sin valores sensibles en repo.
 
 ## CORS
 
@@ -88,7 +88,7 @@ Estado esperado tras `TASK-063`:
 
 ## Azure SQL
 
-Azure SQL pilot fue provisionado por `TASK-074`, pero la API publicada sigue con repositorios fake/fallback hasta `TASK-075`.
+Azure SQL pilot fue provisionado por `TASK-074` y conectado a la API publicada por `TASK-075`.
 
 Recursos:
 
@@ -108,7 +108,7 @@ Guardrails:
 - TLS minimo: `1.2`
 - PITR / short-term retention: `7` dias
 - Differential backup interval: `12` horas
-- Public network access: `Enabled`, restringido por reglas firewall a IPs outbound actuales de la Function App
+- Public network access: `Enabled`, restringido por reglas firewall a `possibleOutboundIpAddresses` de la Function App
 - Locks `CanNotDelete`:
   - `lock-puntoventa-sqlserver-pilot-cannotdelete`
   - `lock-puntoventa-sqldb-pilot-cannotdelete`
@@ -116,7 +116,20 @@ Guardrails:
 App Settings:
 
 - `SQL_CONNECTION_STRING` configurado en Azure Functions sin exponer valor.
-- `PV_SQLSERVER_ENABLED=false` hasta que `TASK-075` conecte API, aplique migraciones/smoke y habilite persistencia real.
+- Variables `PV_SQLSERVER_*` configuradas como app settings/runtime sin exponer passwords.
+- `PV_SQLSERVER_ENABLED=true`.
+
+Estado de datos pilot tras `TASK-075`:
+
+- Migraciones aplicadas:
+  - `database/migrations/20260620_001_initial_mvp_schema.sql`
+  - `database/migrations/20260622_002_daily_cash_flow.sql`
+- Seed ficticio aplicado:
+  - `database/seeds/local/20260622_001_demo_seed.sql`
+- Smoke publicado aprobado:
+  - `GET /api/health`: `sqlConfigured=true`, `sqlAvailable=true`
+  - Catalogo: 4 categorias, 7 items
+  - Venta/ticket/reportes validados contra SQL
 
 Nota operativa:
 

@@ -6,14 +6,14 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-077` entregada: guardrails Azure SQL pilot ajustados a costo minimo; API sigue con SQL deshabilitado.
+- `TASK-075` entregada a Needs Review: API pilot conectada a Azure SQL con smoke publicado aprobado.
 - API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
-- Azure SQL existe, pero la API publicada conserva `PV_SQLSERVER_ENABLED=false`.
+- Azure SQL pilot activo para API con `PV_SQLSERVER_ENABLED=true`; no hay secretos en repo.
 
 ## Siguiente
 
-- Procesar handoff de `TASK-077`.
-- Mantener conexion API/migraciones/smoke para `TASK-075` tras aceptar guardrails.
+- Procesar `TASK-075-HANDOFF.md`.
+- Si Proyecto acepta el handoff, liberar `TASK-076` para QA publicado con persistencia Azure SQL.
 
 ## Bloqueado
 
@@ -57,8 +57,9 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 - `TASK-073`: paquete revisable de migraciones/seeds para Azure SQL pilot preparado sin ejecucion cloud.
 - `TASK-074`: Azure SQL pilot provisionado con serverless bajo y connection string en Function App sin activar SQL runtime.
 - `TASK-077`: auto-pause Azure SQL ajustado a 15 min, locks `CanNotDelete` confirmados y TLS/PITR documentados.
+- `TASK-075`: API pilot conectada a Azure SQL; migraciones/seed demo ejecutados y smoke publicado paso con `sqlAvailable=true`.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 
 ## Decision necesaria
 
-- Procesar `TASK-077`; siguiente decision: liberar `TASK-075`.
+- Procesar `TASK-075`; si se acepta, liberar QA publicado con persistencia Azure SQL.

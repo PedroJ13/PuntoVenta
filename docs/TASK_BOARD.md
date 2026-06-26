@@ -75,8 +75,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-074` - Provisionar Azure SQL pilot y configurar acceso seguro | Ejecucion Tecnica / Infra | P1 nueva fase | Round 58 | `TASK-072`, `TASK-073` | `tasks/TASK-074-HANDOFF.md` |
-| `TASK-077` - TASK-074.5 Ajustar guardrails Azure SQL pilot costo minimo | Ejecucion Tecnica / Infra | P1 nueva fase | Round 58.5 | `TASK-074` | `tasks/TASK-077-HANDOFF.md` |
+| `TASK-075` - Conectar API pilot a Azure SQL con smoke controlado | Ejecucion Tecnica / Backend-API | P1 nueva fase | Round 59 | `TASK-077` | `tasks/TASK-075-HANDOFF.md` |
 
 ## QA
 
@@ -87,7 +86,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Motivo |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-075` - Conectar API pilot a Azure SQL con smoke controlado | Ejecucion Tecnica / Backend-API | P1 nueva fase | Round 59 | `TASK-077` | Espera guardrails Azure SQL costo minimo cerrados |
 | `TASK-076` - QA publicado Web API con persistencia Azure SQL | QA | P1 nueva fase | Round 60 | `TASK-075` | Espera API pilot conectada a Azure SQL |
 
 ## Done
@@ -166,6 +164,8 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-071` - PO Test publicado de pantalla de ventas | PO Test | P1 nueva fase | Round 55 | `TASK-070` | `tasks/TASK-071-HANDOFF.md` |
 | `TASK-072` - Definir decision y plan de persistencia real cloud | Ejecucion Tecnica / Infra | P1 nueva fase | Round 56 | `TASK-071` | `tasks/TASK-072-HANDOFF.md` |
 | `TASK-073` - Preparar migraciones Azure SQL revisables para pilot | Ejecucion Tecnica / SQL DEV-Data | P1 nueva fase | Round 57 | `TASK-072` | `tasks/TASK-073-HANDOFF.md` |
+| `TASK-074` - Provisionar Azure SQL pilot y configurar acceso seguro | Ejecucion Tecnica / Infra | P1 nueva fase | Round 58 | `TASK-072`, `TASK-073` | `tasks/TASK-074-HANDOFF.md` |
+| `TASK-077` - TASK-074.5 Ajustar guardrails Azure SQL pilot costo minimo | Ejecucion Tecnica / Infra | P1 nueva fase | Round 58.5 | `TASK-074` | `tasks/TASK-077-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

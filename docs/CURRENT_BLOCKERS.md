@@ -6,12 +6,14 @@ Bloqueos activos del proyecto. Mantener corto: bloqueo, responsable, siguiente a
 
 | Bloqueo | Responsable | Siguiente accion | Evidencia |
 | --- | --- | --- | --- |
-| Azure SQL pausado | Proyecto/PO | Procesar decision de `TASK-072`; provisionamiento requiere autorizacion explicita posterior para `TASK-074` o equivalente | `docs/CLOUD_PERSISTENCE_DECISION_PLAN.md`, `tasks/TASK-072-HANDOFF.md` |
+| Datos reales bloqueados | Proyecto/PO | Completar `TASK-081`; no usar datos reales hasta fuente completada/aprobada y tarea explicita de scripts o carga | `docs/INITIAL_REAL_DATA_LOAD_PLAN.md`, `docs/REAL_DATA_LOAD_VALIDATION_CHECKLIST.md`, `tasks/TASK-080-HANDOFF.md` |
 
 ## Resueltos recientes
 
 | Bloqueo | Resolucion | Evidencia |
 | --- | --- | --- |
+| PO Test de persistencia Azure SQL pendiente | PO aprobo el pilot publicado con persistencia Azure SQL; se permite preparar fase siguiente sin cargar datos reales aun | `tasks/TASK-078-HANDOFF.md` |
+| Azure SQL pausado | Azure SQL pilot fue autorizado, provisionado, ajustado a guardrails de costo minimo y conectado a API; QA publicado con persistencia Azure SQL aprobado sin P0/P1 | `tasks/TASK-074-HANDOFF.md`, `tasks/TASK-077-HANDOFF.md`, `tasks/TASK-075-HANDOFF.md`, `tasks/TASK-076-HANDOFF.md` |
 | Push cierre pilot pendiente | `origin/main` validado en `0c8d2deb2245552c67e61968849a6135066c3d4e`; GitHub Actions API por push `28189699742` quedo `success` | `tasks/TASK-070-HANDOFF.md` |
 | Baseline local/Git sin consolidar | Commit `e22521f Add PuntoVenta MVP local baseline`; arbol limpio al revisar estado | `git status --short --branch` |
 | PO Test MVP SQL local pendiente | PO aprobo `TASK-047` en este hilo | `tasks/TASK-047-HANDOFF.md` |

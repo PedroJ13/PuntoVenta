@@ -6,18 +6,19 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 
 ## Ahora
 
-- `TASK-075` entregada a Needs Review: API pilot conectada a Azure SQL con smoke publicado aprobado.
+- `TASK-081` asignada a PO Test: revisar plantilla/checklist y definir si existe fuente real inicial aprobable.
+- `TASK-084` bloqueada: commit local listo, push a GitHub rechazado por politica del entorno.
 - API deploy OIDC/RBAC funcionando; CORS pilot restringido; SCM/FTP basic publishing apagados.
-- Azure SQL pilot activo para API con `PV_SQLSERVER_ENABLED=true`; no hay secretos en repo.
 
 ## Siguiente
 
-- Procesar `TASK-075-HANDOFF.md`.
-- Si Proyecto acepta el handoff, liberar `TASK-076` para QA publicado con persistencia Azure SQL.
+- Esperar `TASK-081-HANDOFF.md`.
+- Publicar el commit local pendiente (`HEAD`) desde canal permitido externo a esta sesion, luego reintentar validacion publicada.
+- Mantener datos reales fuera hasta aprobar archivo/fuente completado y abrir tarea explicita de scripts o carga.
 
 ## Bloqueado
 
-- No hay bloqueo activo de push de cierre pilot; publicacion remota validada por `TASK-070`.
+- `TASK-084`: `git push origin main` rechazado por politica de exfiltracion del entorno; requiere canal permitido externo a esta sesion.
 
 ## Hecho reciente
 
@@ -58,8 +59,14 @@ Regla: mantener maximo 3 items en `Ahora`. La historia larga queda en `docs/MVP_
 - `TASK-074`: Azure SQL pilot provisionado con serverless bajo y connection string en Function App sin activar SQL runtime.
 - `TASK-077`: auto-pause Azure SQL ajustado a 15 min, locks `CanNotDelete` confirmados y TLS/PITR documentados.
 - `TASK-075`: API pilot conectada a Azure SQL; migraciones/seed demo ejecutados y smoke publicado paso con `sqlAvailable=true`.
+- `TASK-076`: QA publicado Web/API con persistencia Azure SQL aprobado sin P0/P1.
+- `TASK-078`: PO aprueba pilot publicado con persistencia Azure SQL.
+- `TASK-079`: plan de carga inicial de datos reales preparado; recomienda tenant real separado del demo.
+- `TASK-080`: plantilla XLSX de carga inicial real y checklist de validacion preparados; no se cargo data real.
+- `TASK-082`: health cold start ajustado para refrescar disponibilidad SQL antes de responder.
+- `TASK-083`: runbook baseline pilot actualizado para Azure SQL activo.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 
 ## Decision necesaria
 
-- Procesar `TASK-075`; si se acepta, liberar QA publicado con persistencia Azure SQL.
+- PO debe aprobar/corregir `docs/templates/puntoventa_carga_inicial_real_template.xlsx` y confirmar si la fuente real estara lista fuera del repo.

@@ -1,11 +1,15 @@
 import { dataResponse } from "../http/responses.js";
 
-export function createHealthRoutes({ clock, storageStatus = () => ({ mode: "fake" }) }) {
+export function createHealthRoutes({ clock, storageStatus = () => ({ mode: "fake" }), storageHealthCheck }) {
   return [
     {
       method: "GET",
       path: "/api/health",
       handler: async () => {
+        if (storageHealthCheck) {
+          await storageHealthCheck();
+        }
+
         const storage = storageStatus();
         const storageDetails = {
           catalog: storage.catalog || storage.mode,

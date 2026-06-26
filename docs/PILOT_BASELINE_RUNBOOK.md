@@ -2,7 +2,7 @@
 
 ## Proposito
 
-Baseline operativo reproducible para PuntoVenta Web/API pilot sin Azure SQL. Este documento no contiene secretos ni valores de tokens.
+Baseline operativo reproducible para PuntoVenta Web/API pilot con Azure SQL activo para la API. Este documento no contiene secretos ni valores de tokens.
 
 ## Estado esperado
 
@@ -12,7 +12,8 @@ Baseline operativo reproducible para PuntoVenta Web/API pilot sin Azure SQL. Est
 - `basicPublishingCredentialsPolicies/scm`: `allow:false`.
 - `basicPublishingCredentialsPolicies/ftp`: `allow:false`.
 - CORS de API restringido a la Web pilot.
-- Azure SQL fuera del baseline.
+- Azure SQL pilot activo con serverless bajo, auto-pause y locks `CanNotDelete`.
+- API health debe reflejar SQL configurado y disponible despues del probe de health.
 
 ## URLs publicas
 
@@ -30,6 +31,9 @@ Baseline operativo reproducible para PuntoVenta Web/API pilot sin Azure SQL. Est
 | Static Web App | `swa-puntoventa-pilot-eastus2` |
 | Function App | `func-puntoventa-pilot-eastus2` |
 | Region | `eastus2` |
+| SQL Server | `sqlserver-puntoventa-pilot-brazilsouth` |
+| SQL Database | `sqldb-puntoventa-pilot` |
+| SQL Region | `brazilsouth` |
 
 ## Workflows GitHub Actions
 
@@ -80,10 +84,60 @@ Settings no secretos esperados:
 | Setting | Valor |
 | --- | --- |
 | `APP_ENV` | `pilot` |
-| `PV_SQLSERVER_ENABLED` | `false` |
+| `PV_SQLSERVER_ENABLED` | `true` |
 | `ALLOWED_ORIGINS` | `https://gray-beach-00a0f870f.7.azurestaticapps.net` |
 
-No configurar `SQL_CONNECTION_STRING` en este baseline.
+Settings secretos o sensibles esperados en Azure Functions, sin valores en repo:
+
+- `SQL_CONNECTION_STRING`
+- variables `PV_SQLSERVER_*` sensibles si aplican, sin exponer passwords.
+
+No imprimir connection strings, usuarios sensibles, passwords ni valores de secrets en logs o handoffs.
+
+## Azure SQL pilot
+
+Azure SQL fue provisionado por `TASK-074`, ajustado por `TASK-077` y conectado a la API por `TASK-075`.
+
+Recursos:
+
+| Recurso | Valor |
+| --- | --- |
+| SQL Server | `sqlserver-puntoventa-pilot-brazilsouth` |
+| FQDN | `sqlserver-puntoventa-pilot-brazilsouth.database.windows.net` |
+| SQL Database | `sqldb-puntoventa-pilot` |
+| Region SQL | `brazilsouth` |
+| Resource group | `rg-puntoventa-pilot-eastus2` |
+
+Guardrails esperados:
+
+| Control | Valor esperado |
+| --- | --- |
+| Service objective | `GP_S_Gen5_1` |
+| Compute model | `Serverless` |
+| Min capacity | `0.5` |
+| Auto-pause | `15` minutos |
+| Backup redundancy | `Local` |
+| Zone redundant | `false` |
+| TLS minimo | `1.2` |
+| PITR / short-term retention | `7` dias |
+| Differential backup interval | `12` horas |
+| Public network access | `Enabled`, restringido por firewall |
+
+Locks esperados:
+
+- `lock-puntoventa-sqlserver-pilot-cannotdelete`
+- `lock-puntoventa-sqldb-pilot-cannotdelete`
+
+Datos esperados del baseline:
+
+- Solo datos ficticios/demo y ventas de smoke.
+- No datos reales.
+- Tenant demo: `PV-DEMO-LOCAL`.
+- No cambiar `PV_SQLSERVER_COMPANY_TAX_ID` a tenant real sin tarea Backend/API o Infra posterior.
+
+Nota de region:
+
+`eastus2` no acepto nuevos Azure SQL Database servers durante `TASK-074`; se uso `brazilsouth` por aprobacion explicita del usuario, alineado con la region usada por PuntoClub para SQL.
 
 ## CORS API pilot
 
@@ -167,26 +221,53 @@ Resultado esperado:
 
 ```text
 HTTP/1.1 200 OK
-storage=fake
-sqlConfigured=false
-sqlAvailable=false
+storage=sql-local
+sqlConfigured=true
+sqlAvailable=true
+catalog=sql-local
+openAccounts=sql-local
+cashShifts=sql-local
+sales=sql-local
+reports=sql-local
 ```
 
-Azure SQL fuera:
+Nota: `sql-local` es la etiqueta historica del API para repositorios SQL. En el pilot publicado actual corresponde a Azure SQL segun `docs/PILOT_DEPLOY_CONFIG.md` y los handoffs `TASK-075`/`TASK-076`.
+
+Azure SQL activo:
 
 ```powershell
 az resource list --resource-group rg-puntoventa-pilot-eastus2 --query "[?contains(type, 'Sql') || contains(type, 'sql')].{name:name,type:type}" --output json
 ```
 
-Resultado esperado:
+Resultado esperado minimo:
 
 ```json
-[]
+[
+  {
+    "name": "sqlserver-puntoventa-pilot-brazilsouth",
+    "type": "Microsoft.Sql/servers"
+  },
+  {
+    "name": "sqlserver-puntoventa-pilot-brazilsouth/sqldb-puntoventa-pilot",
+    "type": "Microsoft.Sql/servers/databases"
+  }
+]
+```
+
+Checks no destructivos de SQL:
+
+```powershell
+az sql db show --resource-group rg-puntoventa-pilot-eastus2 --server sqlserver-puntoventa-pilot-brazilsouth --name sqldb-puntoventa-pilot --query "{name:name,currentServiceObjectiveName:currentServiceObjectiveName,computeModel:computeModel,autoPauseDelay:autoPauseDelay,minCapacity:minCapacity,zoneRedundant:zoneRedundant,currentBackupStorageRedundancy:currentBackupStorageRedundancy}" --output json
+
+az sql db str-policy show --resource-group rg-puntoventa-pilot-eastus2 --server sqlserver-puntoventa-pilot-brazilsouth --database sqldb-puntoventa-pilot --query "{retentionDays:retentionDays,diffBackupIntervalInHours:diffBackupIntervalInHours}" --output json
+
+az lock list --resource-group rg-puntoventa-pilot-eastus2 --query "[?contains(name, 'puntoventa')].{name:name,level:level,scope:id}" --output table
 ```
 
 ## Regla de seguridad
 
 - No guardar tokens, publish profiles, passwords ni connection strings en archivos.
 - No imprimir valores de secrets en handoffs.
-- No crear Azure SQL sin tarea explicita futura.
+- No cargar datos reales sin tarea explicita futura, fuente aprobada y rollback/mitigacion.
+- No borrar ni limpiar datos demo/smoke sin tarea explicita, respaldo y decision documentada.
 - No relajar `scm allow:false` o `ftp allow:false` salvo tarea Infra con motivo y cierre posterior.

@@ -65,6 +65,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Nota |
 | --- | --- | --- | --- | --- | --- |
+| `TASK-081` - PO revisar plantilla y definir fuente real inicial | PO Test | P1 nueva fase | Round 64 | `TASK-080` | Revisar plantilla/checklist y aprobar o pedir correcciones; no cargar datos |
 
 ## In Progress
 
@@ -75,7 +76,6 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Handoff |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-075` - Conectar API pilot a Azure SQL con smoke controlado | Ejecucion Tecnica / Backend-API | P1 nueva fase | Round 59 | `TASK-077` | `tasks/TASK-075-HANDOFF.md` |
 
 ## QA
 
@@ -86,7 +86,7 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 
 | Tarea | Equipo | Prioridad | Round | Depende de | Motivo |
 | --- | --- | --- | --- | --- | --- |
-| `TASK-076` - QA publicado Web API con persistencia Azure SQL | QA | P1 nueva fase | Round 60 | `TASK-075` | Espera API pilot conectada a Azure SQL |
+| `TASK-084` - Publicar correccion health API pilot y validar baseline | Ejecucion Tecnica / Infra | P2 observacion QA | Round 67 | `TASK-082`, `TASK-083` | Commit local pendiente listo; `git push origin main` rechazado por politica de exfiltracion del entorno |
 
 ## Done
 
@@ -166,6 +166,13 @@ Proyecto mantiene la creacion de tareas, prioridad y asignacion. Los chats respo
 | `TASK-073` - Preparar migraciones Azure SQL revisables para pilot | Ejecucion Tecnica / SQL DEV-Data | P1 nueva fase | Round 57 | `TASK-072` | `tasks/TASK-073-HANDOFF.md` |
 | `TASK-074` - Provisionar Azure SQL pilot y configurar acceso seguro | Ejecucion Tecnica / Infra | P1 nueva fase | Round 58 | `TASK-072`, `TASK-073` | `tasks/TASK-074-HANDOFF.md` |
 | `TASK-077` - TASK-074.5 Ajustar guardrails Azure SQL pilot costo minimo | Ejecucion Tecnica / Infra | P1 nueva fase | Round 58.5 | `TASK-074` | `tasks/TASK-077-HANDOFF.md` |
+| `TASK-075` - Conectar API pilot a Azure SQL con smoke controlado | Ejecucion Tecnica / Backend-API | P1 nueva fase | Round 59 | `TASK-077` | `tasks/TASK-075-HANDOFF.md` |
+| `TASK-076` - QA publicado Web API con persistencia Azure SQL | QA | P1 nueva fase | Round 60 | `TASK-075` | `tasks/TASK-076-HANDOFF.md` |
+| `TASK-078` - PO Test publicado con persistencia Azure SQL | PO Test | P1 nueva fase | Round 61 | `TASK-076` | `tasks/TASK-078-HANDOFF.md` |
+| `TASK-079` - Preparar plan de carga inicial de datos reales | Ejecucion Tecnica / SQL DEV-Data | P1 nueva fase | Round 62 | `TASK-078` | `tasks/TASK-079-HANDOFF.md` |
+| `TASK-080` - Preparar plantilla de carga inicial real y checklist de validacion | Ejecucion Tecnica / SQL DEV-Data | P1 nueva fase | Round 63 | `TASK-079` | `tasks/TASK-080-HANDOFF.md` |
+| `TASK-082` - Corregir health cold start para reflejar estado SQL real | Ejecucion Tecnica / Backend-API | P2 observacion QA | Round 65 | `TASK-076` | `tasks/TASK-082-HANDOFF.md` |
+| `TASK-083` - Actualizar runbook baseline pilot con Azure SQL activo | Ejecucion Tecnica / Infra | P3 observacion QA | Round 66 | `TASK-076` | `tasks/TASK-083-HANDOFF.md` |
 
 ## Formato sugerido de fila
 

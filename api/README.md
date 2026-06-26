@@ -144,7 +144,7 @@ $env:PV_SQLSERVER_COMPANY_TAX_ID="PV-DEMO-LOCAL"
 
 Precondicion: ejecutar migraciones y seeds locales de `database/seeds/local/README.md`.
 
-La API no guarda connection strings. Si SQL no esta configurado o no responde, `GET /api/categories`, `GET /api/items`, los endpoints de `/api/open-accounts`, `/api/cash-shifts`, `/api/sales` y `/api/reports` regresan al repositorio fake. `GET /api/health` reporta `storage`, `storageDetails.catalog`, `storageDetails.openAccounts`, `storageDetails.cashShifts`, `storageDetails.sales`, `storageDetails.reports`, `storageDetails.sqlConfigured` y `storageDetails.sqlAvailable` sin exponer host, base, usuario ni password.
+La API no guarda connection strings. Si SQL no esta configurado o no responde, `GET /api/categories`, `GET /api/items`, los endpoints de `/api/open-accounts`, `/api/cash-shifts`, `/api/sales` y `/api/reports` regresan al repositorio fake. `GET /api/health` prueba disponibilidad SQL cuando SQL esta configurado y reporta `storage`, `storageDetails.catalog`, `storageDetails.openAccounts`, `storageDetails.cashShifts`, `storageDetails.sales`, `storageDetails.reports`, `storageDetails.sqlConfigured` y `storageDetails.sqlAvailable` sin exponer host, base, usuario ni password.
 
 Notas de alcance:
 

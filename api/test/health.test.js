@@ -70,6 +70,51 @@ test("GET /api/health returns configured storage details without secrets", async
   assert.equal(JSON.stringify(body).includes("localhost"), false);
 });
 
+test("GET /api/health refreshes SQL storage state before responding", async () => {
+  const storageState = {
+    mode: "fake",
+    catalog: "fake",
+    openAccounts: "fake",
+    cashShifts: "fake",
+    sales: "fake",
+    reports: "fake",
+    sqlConfigured: true,
+    sqlAvailable: false
+  };
+
+  const app = createApp({
+    clock: () => new Date("2026-06-21T12:00:00Z"),
+    storageStatus: () => ({ ...storageState }),
+    storageHealthCheck: async () => {
+      storageState.mode = "sql-local";
+      storageState.catalog = "sql-local";
+      storageState.openAccounts = "sql-local";
+      storageState.cashShifts = "sql-local";
+      storageState.sales = "sql-local";
+      storageState.reports = "sql-local";
+      storageState.sqlAvailable = true;
+    },
+    repositories: {
+      catalog: createFakeCatalogRepository()
+    }
+  });
+
+  const response = await app.handle(new Request("http://local.test/api/health"));
+  const body = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(body.data.storage, "sql-local");
+  assert.deepEqual(body.data.storageDetails, {
+    catalog: "sql-local",
+    openAccounts: "sql-local",
+    cashShifts: "sql-local",
+    sales: "sql-local",
+    reports: "sql-local",
+    sqlConfigured: true,
+    sqlAvailable: true
+  });
+});
+
 test("unknown routes return standard NOT_FOUND error", async () => {
   const app = createApp({
     repositories: {

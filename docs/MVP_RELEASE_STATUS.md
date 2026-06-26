@@ -87,6 +87,11 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-073` preparo el paquete revisable de migraciones y seed ficticio para Azure SQL pilot sin ejecutar SQL real ni crear recursos cloud.
 - `TASK-074` provisiono Azure SQL pilot en `brazilsouth` con serverless bajo, usuario runtime minimo y `SQL_CONNECTION_STRING` en Function App; la API sigue con `PV_SQLSERVER_ENABLED=false`.
 - `TASK-075` conecto la API pilot a Azure SQL, ejecuto migraciones/seed demo autorizados y aprobo smoke tecnico publicado con `sqlConfigured=true` y `sqlAvailable=true`.
+- `TASK-076` aprobo QA publicado Web/API con persistencia Azure SQL sin P0/P1; quedan observaciones P2/P3.
+- `TASK-078` aprobo como PO el pilot publicado con persistencia Azure SQL.
+- `TASK-080` preparo la plantilla XLSX de carga inicial real y checklist de validacion previa, sin cargar datos ni tocar Azure SQL.
+- `TASK-082` corrigio health cold start para refrescar disponibilidad SQL real antes de responder.
+- `TASK-083` actualizo el runbook baseline pilot para Azure SQL activo.
 - Baseline local versionado en commit `e22521f Add PuntoVenta MVP local baseline`.
 - Repo local Git inicializado.
 - Flujo Codex de Proyecto / Pulso / QA / Ejecucion Tecnica incorporado al repo.
@@ -94,12 +99,14 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ### Siguiente
 
-- Procesar `TASK-075-HANDOFF.md`.
-- Si Proyecto acepta el handoff, liberar `TASK-076` para QA publicado Web/API con persistencia Azure SQL.
+- Completar `TASK-081`: PO revisa plantilla/checklist y define fuente real inicial.
+- Desbloquear `TASK-084`: publicar el commit local pendiente (`HEAD`) desde canal permitido y validar baseline publicado.
+- Mantener datos reales fuera hasta aprobar fuente/archivo completado y abrir tarea explicita de scripts o carga.
 
 ### Bloqueado
 
-- QA publicado con persistencia Azure SQL pendiente de liberacion de Proyecto tras procesar `TASK-075`.
+- Datos reales bloqueados hasta aprobar fuente/archivo completado y tarea explicita de scripts o carga.
+- `TASK-084` bloqueada por politica de exfiltracion al intentar `git push origin main` desde esta sesion.
 - Sin bloqueo activo de push de cierre pilot; remoto validado por `TASK-070`.
 
 ### Hecho
@@ -181,6 +188,12 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 - `TASK-074`: Azure SQL pilot provisionado y configurado sin activar runtime SQL en API.
 - `TASK-077`: guardrails Azure SQL pilot costo minimo ajustados.
 - `TASK-075`: API pilot conectada a Azure SQL con smoke tecnico publicado aprobado.
+- `TASK-076`: QA publicado Web/API con persistencia Azure SQL aprobado sin P0/P1.
+- `TASK-078`: PO Test publicado con persistencia Azure SQL aprobado.
+- `TASK-079`: plan de carga inicial de datos reales preparado sin tocar Azure SQL.
+- `TASK-080`: plantilla de carga inicial real y checklist de validacion preparados sin tocar Azure SQL.
+- `TASK-082`: health cold start ajustado para reflejar disponibilidad SQL real.
+- `TASK-083`: runbook baseline pilot actualizado con Azure SQL activo.
 
 ## Riesgos principales
 
@@ -193,5 +206,5 @@ Decision inicial: MVP operativo web para cafeteria/despacho, sin manejo de mesas
 
 ## Siguiente paso recomendado
 
-Procesar `TASK-075-HANDOFF.md`; si se acepta, liberar `TASK-076` para QA publicado Web/API con persistencia Azure SQL.
+Completar `TASK-081` y desbloquear `TASK-084` publicando el commit local desde canal permitido; no cargar datos reales sin fuente completada/aprobada, validacion previa, scripts revisables y mitigacion.
 

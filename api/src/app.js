@@ -12,14 +12,15 @@ export function createApp({
   repositories,
   clock = () => new Date(),
   authProvider = createFakeAuth(),
-  storageStatus = () => ({ mode: "fake" })
+  storageStatus = () => ({ mode: "fake" }),
+  storageHealthCheck
 } = {}) {
   if (!repositories?.catalog) {
     throw new Error("createApp requires repositories.catalog");
   }
 
   const routes = [
-    ...createHealthRoutes({ clock, storageStatus }),
+    ...createHealthRoutes({ clock, storageStatus, storageHealthCheck }),
     ...createMeRoutes(),
     ...createCatalogRoutes({ catalogRepository: repositories.catalog }),
     ...createCashShiftRoutes({ cashShiftRepository: repositories.cashShifts }),

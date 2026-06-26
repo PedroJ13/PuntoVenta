@@ -2,7 +2,7 @@
 
 ## Estado
 
-Blocked
+Done
 
 ## Nombre del Equipo
 
@@ -60,12 +60,12 @@ Validar el pilot publicado Web/API usando persistencia Azure SQL real, separando
 
 ## Criterios de aceptacion
 
-- [ ] Web/API publicados validados.
-- [ ] Azure SQL confirmado en uso o bloqueo exacto documentado.
-- [ ] Smoke funcional publicado ejecutado.
-- [ ] Persistencia basica validada.
-- [ ] Hallazgos clasificados por severidad.
-- [ ] Veredicto claro.
+- [x] Web/API publicados validados.
+- [x] Azure SQL confirmado en uso o bloqueo exacto documentado.
+- [x] Smoke funcional publicado ejecutado.
+- [x] Persistencia basica validada.
+- [x] Hallazgos clasificados por severidad.
+- [x] Veredicto claro.
 
 ## Verificacion esperada
 
@@ -76,4 +76,4 @@ Validar el pilot publicado Web/API usando persistencia Azure SQL real, separando
 
 ## Dependencia
 
-Bloqueada hasta `TASK-075`.
+Liberada por Proyecto tras cierre de `TASK-075`. API pilot esta conectada a Azure SQL con smoke tecnico publicado aprobado.

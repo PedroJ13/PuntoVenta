@@ -12,6 +12,7 @@ import { createSqlCatalogRepository } from "./sqlCatalogRepository.js";
 import { createSqlOpenAccountRepository } from "./sqlOpenAccountRepository.js";
 import { createSqlReportRepository } from "./sqlReportRepository.js";
 import { createSqlSalesRepository } from "./sqlSalesRepository.js";
+import { markSqlAvailable, markSqlFallback } from "./fallbackStorageState.js";
 
 export function createConfiguredPuntoVentaRepositories({ env = process.env } = {}) {
   const fakeRepositories = createFakePuntoVentaRepositories();
@@ -31,7 +32,8 @@ export function createConfiguredPuntoVentaRepositories({ env = process.env } = {
   if (!sqlConfig.enabled) {
     return {
       repositories: fakeRepositories,
-      storageStatus: () => ({ ...storageState })
+      storageStatus: () => ({ ...storageState }),
+      storageHealthCheck: null
     };
   }
 
@@ -86,8 +88,22 @@ export function createConfiguredPuntoVentaRepositories({ env = process.env } = {
         storageState
       })
     },
-    storageStatus: () => ({ ...storageState })
+    storageStatus: () => ({ ...storageState }),
+    storageHealthCheck: () => probeSqlStorage({ sqlClient, storageState })
   };
+}
+
+async function probeSqlStorage({ sqlClient, storageState }) {
+  try {
+    await sqlClient.query("SELECT 1 AS ok");
+    for (const key of ["catalog", "openAccounts", "cashShifts", "sales", "reports"]) {
+      markSqlAvailable(storageState, key);
+    }
+  } catch (error) {
+    for (const key of ["catalog", "openAccounts", "cashShifts", "sales", "reports"]) {
+      markSqlFallback(storageState, key, error);
+    }
+  }
 }
 
 function createSqlClient({ config, env }) {
